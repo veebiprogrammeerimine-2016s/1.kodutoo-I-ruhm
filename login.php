@@ -8,9 +8,9 @@
 	$signupPasswordError = "";
 	
 	// kas e/post oli olemas
-	if ( isset ( $_POST["signupEmail"] ) ) {
+	if (isset ($_POST["signupEmail"])) {
 		
-		if ( empty ( $_POST["signupEmail"] ) ) {
+		if (empty ($_POST["signupEmail"])) {
 			
 			// oli email, kuid see oli tühi
 			$signupEmailError = "See väli on kohustuslik!";
@@ -19,9 +19,9 @@
 		
 	}
 	
-	if ( isset ( $_POST["signupPassword"] ) ) {
+	if (isset ($_POST["signupPassword"])) {
 		
-		if ( empty ( $_POST["signupPassword"] ) ) {
+		if (empty ($_POST["signupPassword"])) {
 			
 			// oli password, kuid see oli tühi
 			$signupPasswordError = "See väli on kohustuslik!";
@@ -29,9 +29,9 @@
 		} else {
 			
 			// tean et parool on ja see ei olnud tühi
-			// VÄHEMALT 8
+			// VÄHEMALT 8 tähemärki peab parool olema
 			
-			if ( strlen($_POST["signupPassword"]) < 8 ) {
+			if (strlen($_POST["signupPassword"]) < 8 ) {
 				
 				$signupPasswordError = "Parool peab olema vähemalt 8 tähemärkki pikk";
 				
