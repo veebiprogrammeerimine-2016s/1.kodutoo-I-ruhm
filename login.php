@@ -6,6 +6,8 @@
 	$signuppassworderror = "";
 	$loginemailerror = "";
 	$loginpassworderror = "";
+	$nimierror = "";
+	$pereerror = "";
 	
 	//kas epost oli olemas
 	if(isset ($_POST["signupemail"])){
@@ -47,6 +49,19 @@
 			$loginpassworderror = "See väli on tühi";
 		}
 	}
+	
+	if (isset ($_POST ["eesnimi"])){
+		if (empty($_POST ["nimierror"])){
+			$nimierror = "See väli on tühi";
+		}
+	}
+	
+	if (isset ($_POST ["perenimi"])){
+		if (empty($_POST ["pereerror"])){
+			$pereerror = "See väli on tühi";
+		}
+	}
+	
 ?>
 <!DOCTYPE html>
 <html>
@@ -75,9 +90,9 @@
 			<br><br>
 			<input name="signuppassword" type="password" placeholder="Parool"><?php echo $signuppassworderror; ?>
 			<br><br>
-			<input name ="eesnimi" placeholder = "Eesnimi">
+			<input name ="eesnimi" placeholder = "Eesnimi"><?php echo $nimierror; ?>
 			<br><br>
-			<input name="perenimi" placeholder="Perekonnanimi">
+			<input name="perenimi" placeholder="Perekonnanimi"><?php echo $pereerror; ?>
 			<input type="submit" value="Logi sisse">
 		</form>
 		
