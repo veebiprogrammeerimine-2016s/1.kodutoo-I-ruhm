@@ -4,6 +4,9 @@
 	//var_dump ($_POST);
 	$signupemailerror = "";
 	$signuppassworderror = "";
+	$loginemailerror = "";
+	$loginpassworderror = "";
+	
 	//kas epost oli olemas
 	if(isset ($_POST["signupemail"])){
 		
@@ -28,6 +31,22 @@
 		}
 		
 	}
+	
+	if (isset ($_POST["loginemail"])) {
+		if (empty ($_POST ["loginemail"])){
+			$loginemailerror = "See väli on tühi";
+		}else {
+			if (strlen ($_POST["loginpassword"])< 8) {
+				$loginpassworderror = "Parool peab olema vähemalt 8 tähemärkki pikk";
+			}
+		}
+	}
+	
+	if (isset($_POST ["loginpassword"])){
+		if (empty ($_POST ["loginpassword"])){
+			$loginpassworderror = "See väli on tühi";
+		}
+	}
 ?>
 <!DOCTYPE html>
 <html>
@@ -39,9 +58,9 @@
 		<h1>Logi sisse</h1>
 		<form method = "POST">
 			<!--<label>E-post</label><br>-->
-			<input name="loginemail" placeholder="E-post">
+			<input name="loginemail" type = "email" placeholder="E-post"> <?php echo $loginemailerror; ?>
 			<br><br>
-			<input name="loginpassword" placeholder="Parool">
+			<input name="loginpassword" type = "password" placeholder="Parool"> <?php echo $loginpassworderror; ?>
 			<br><br>
 			<input type="submit" value="Logi sisse">
 		</form>
@@ -58,3 +77,4 @@
 			<br><br>
 			<input type="submit" value="Logi sisse">
 		</form>
+	
