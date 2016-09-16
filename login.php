@@ -96,6 +96,13 @@
 			<input name ="eesnimi" placeholder = "Eesnimi"><?php echo $nimierror; ?>
 			<br><br>
 			<input name="perenimi" placeholder="Perekonnanimi"><?php echo $pereerror; ?>
+			
+		<p>
+			<input type="radio" name="gender" value="male"> Mees<br>
+			<input type="radio" name="gender" value="female"> Naine<br>
+			<input type="radio" name="gender" value="other"> Muu<br>
+		<p>
+		
 			<input type="submit" value="Logi sisse">
 		</form>
 		
