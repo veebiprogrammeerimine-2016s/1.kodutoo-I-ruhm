@@ -1,4 +1,7 @@
+
+
 <?php
+	
 	//var_dump ($_GET);
 	//echo "<br>";
 	//var_dump ($_POST);
@@ -96,4 +99,13 @@
 			<input type="submit" value="Logi sisse">
 		</form>
 		
+		<html>
+		<body>
+		<h1>MVP IDEE</h1>
+		<p>
+	    TLU ühiselamute elanikele mõeldud veebileht - kuulutused, sündmused, suhtlemise võimalus. <br>
+		Saadaval on kõik vajalik informatsioon, ka selline, millist ei ole
+		ametlikul veebilehel nt. pesumasinate kasutamise järjekord, väravate sulgemisajad jne. 
+		</body>
+		</html>
 	
