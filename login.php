@@ -75,6 +75,10 @@
 			<br><br>
 			<input name="signuppassword" type="password" placeholder="Parool"><?php echo $signuppassworderror; ?>
 			<br><br>
+			<input name ="eesnimi" placeholder = "Eesnimi">
+			<br><br>
+			<input name="perenimi" placeholder="Perekonnanimi">
 			<input type="submit" value="Logi sisse">
 		</form>
+		
 	
