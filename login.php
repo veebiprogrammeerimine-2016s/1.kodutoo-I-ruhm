@@ -6,6 +6,7 @@
 	
 	$signupEmailError = "";
 	$signupPasswordError = "";
+	$signupGenderError = "";
 	
 	// kas e/post oli olemas
 	if ( isset ( $_POST["signupEmail"] ) ) {
@@ -18,7 +19,14 @@
 		}
 		
 	}
-	
+	if ( isset ( $_POST["signupGender"] ) ) {
+		
+		if ( empty ( $_POST["signupGender"] ) ) {
+			
+			// oli sugu, kuid see oli tühi
+			$signupGenderError = "See väli on kohustuslik!";
+		}
+	}
 	if ( isset ( $_POST["signupPassword"] ) ) {
 		
 		if ( empty ( $_POST["signupPassword"] ) ) {
@@ -80,9 +88,21 @@
 			
 			<br><br>
 			
+				<label>sugu</label><br>
+				<input name="signupGender" type="gender" placeholder="Mees/Naine/Natuke mõlemat"> <?php echo $signupGenderError; ?>
+			
+			<br><br>
+			
+				<label>vanus</label><br>
+				<input name="signupAge" type="age"> <?php echo $signupPasswordError; ?>
+			
+			<br><br>
+			
 			<input type="submit" value="Loo kasutaja">
 			
 		</form>
+		
+		
 		
 	</body>
 </html>
