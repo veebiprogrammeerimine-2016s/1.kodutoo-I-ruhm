@@ -31,12 +31,12 @@
 			
 		} else {
 			
-			//tean, et parool on ja see ei olnud tühi
-			//vähemalt 8
+			//tean, et oli parool ja see ei olnud tühi
+			//vähemalt 8 tähemärki
 			
 			if (strlen($_POST["SignupPassword"] ) <8 ) {
 				
-					$SignupPasswordError="Parool peab olema vähemalt 8 tähemärki pikk";
+					$SignupPasswordError="Parool peab olema vähemalt 8 tähemärki pikk!";
 					
 			}
 			
@@ -85,8 +85,7 @@
 		<h1>Loo kasutaja</h1>
 		<form method="POST">
 		
-			<label>E-post</label><br>
-			<input name="SignupEmail" type="email"> <?php echo $SignupEmailError; ?>
+			<input name="SignupEmail" type="email" placeholder="E-post"> <?php echo $SignupEmailError; ?>
 		
 			<br><br>
 		
