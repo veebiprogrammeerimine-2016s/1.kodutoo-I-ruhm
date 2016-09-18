@@ -77,8 +77,6 @@
 		}
 	}
 	
-	echo substr( $_POST['year_of_birth'], -4 ) % 4;
-	
 ?>
 
 <html>
