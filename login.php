@@ -1,36 +1,48 @@
 ﻿<?php
 
-	//var_dump($_GET);
-	//echo "<br>";
-	//var_dump($_POST);
-	
+	$signupUsernameError = "";
+	$signupGenderError = "";
 	$signupEmailError = "";
 	$signupPasswordError = "";
 	
-	// kas e-post oli olemas?
-	if (isset ($_POST["signupEmail"]) ) {
+	if (isset ($_POST["signupUsername"]) ) {
 	
-		if (empty ($_POST["signupEmail"]) ) { 
-			//oli email, aga tühi
-			$signupEmailError = "See väli on kohustuslik!";
+		if (empty ($_POST["signupUsername"]) ) { 
+			$signupUsernameError = "See väli on kohustuslik!";
+		
 		}
 	}
-
+	
 	if (isset ($_POST["signupPassword"]) ) {
 	
 		if (empty ($_POST["signupPassword"]) ) { 
 			$signupPasswordError = "See väli on kohustuslik!";
 		
 		} else {
-			// tean et parool ja see ei olnud tühi
-			// VÄHEMALT 8tähemärki
 			
-			if (strlen ($_POST["signupPassword"]) <= 8 ){
-				$signupPasswordError = "Parool peab olema 8 tähemärki pikk!";
+			if (strlen ($_POST["signupPassword"]) <= 5 ){
+				$signupPasswordError = "Parool peab olema 5 tähemärki pikk!";
 			}
 		}
 	}
+
 	
+	// siin jäi töö poolikuks, sest ei osanud mitme valiku puhul määrata, mis saab siis, kui kasutaja jätab soo määramata.
+	if (isset ($_POST["signupGender"]) ) {
+	
+		if (empty ($_POST["signupGender"]) ) { 
+			$signupGenderError = "See väli on kohustuslik!";
+		}
+	}
+	
+	if (isset ($_POST["signupEmail"]) ) {
+	
+		if (empty ($_POST["signupEmail"]) ) { 
+			$signupEmailError = "See väli on kohustuslik!";
+		}
+	}
+	
+	//MVP idee: luua rakendus (sarnaselt goodreads.com'ile), kuhu kasutaja saab lisada, millist raamatut loeb, kui kaua võttis ühe raamatu lugemine aega, millised on tema lemmikraamatud jms, ning leht näitab nende tunnuste alusel statistikat (nt kui palju raamatuid kasutaja luges ühel aastal ning kui palju aega on ta lugemisele kulutanud)
 ?>
 
 <!DOCTYPE html>
@@ -42,9 +54,8 @@
 
 		<h1>Logi sisse</h1>
 
-		<form method="POST"> <!-- varjatud salasõna jms -->
+		<form method="POST">
 		
-			<!--<label>E-post</label> ... nimi jääb välja üles-->
 			<input name="loginEmail" type="email" placeholder="E-maili aadress">
 			
 			<br><br>
@@ -63,11 +74,23 @@
 		
 		<form method="POST"> 
 		
-			<input name="signupEmail" type="email" placeholder="E-maili aadress"> <?php echo $signupEmailError; ?>
-			
+			<input name="signupUsername" type="username" placeholder="Kasutajatunnus"> <?php echo $signupUsernameError; ?>
+		
 			<br><br>
 			
 			<input name="signupPassword" type="password" placeholder="Parool"> <?php echo $signupPasswordError; ?>
+			
+			<br><br>
+			
+			<label>Sugu</label><br>
+			
+			<input name="signupGender" type="radio" value="male"> Mees<br>
+			<input name="signupGender" type="radio" value="female"> Naine<br>
+			<input name="signupGender" type="radio" value="other"> Ei soovi avaldada
+			
+			<br><br>
+		
+			<input name="signupEmail" type="email" placeholder="E-maili aadress"> <?php echo $signupEmailError; ?>
 			
 			<br><br>
 			
