@@ -1,5 +1,9 @@
 <?php
-	
+
+	// MVP esialgne idee: treeningu tulemuste analüüsimine nn. elektrooniline treeningpäevik.
+	// Sinna saaksid inimesed endale kasutaja luua ning oma treeningute andmeid sinna sisestada ja neid seal analüüsida (nädala/kuu kokkuvõtted jne).
+
+
 	//var_dump($_GET);
 	//echo "<br>";
 	//var_dump($_POST);
@@ -193,8 +197,9 @@
 			
 			
 			<input type="submit" value="Loo kasutaja">
-			
+		
 		</form>
 		
 	</body>
+	
 </html>
