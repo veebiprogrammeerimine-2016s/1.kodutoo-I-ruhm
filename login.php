@@ -71,9 +71,10 @@
 	<head>
 		<title>Sisselogimise lehekülg</title>
 	</head>
-	<body>
+	<body bgcolor = "#C1FFFD">
 
-		<h1>Logi sisse</h1>
+
+		<h1><font color = "blue">Logi sisse</font></h1>
 		<form method = "POST">
 			<!--<label>E-post</label><br>-->
 			<input name="loginemail" type = "email" placeholder="E-post"> <?php echo $loginemailerror; ?>
@@ -86,21 +87,25 @@
 	</body>
 </html>
 
-<h1>Loo kasutaja</h1>
+<h1><font color = "blue">Loo kasutaja</font></h1>
 		<form method = "POST">
 			<!--<label>E-post</label><br>-->
 			<input name="signupemail" type = "email" placeholder="E-post"><?php echo $signupemailerror; ?>
 			<br><br>
 			<input name="signuppassword" type="password" placeholder="Parool"><?php echo $signuppassworderror; ?>
 			<br><br>
+			<b><font color = "blue">Nimi</font></b> 
+			<p>
 			<input name ="eesnimi" placeholder = "Eesnimi"><?php echo $nimierror; ?>
 			<br><br>
 			<input name="perenimi" placeholder="Perekonnanimi"><?php echo $pereerror; ?>
 			
 		<p>
-			<input type="radio" name="gender" value="male"> Mees<br>
-			<input type="radio" name="gender" value="female"> Naine<br>
-			<input type="radio" name="gender" value="other"> Muu<br>
+			<b><font color = "blue">Sugu</font></b>
+			<p>
+			<input type="radio" name="gender" value="male"> <i>Mees</i><br>
+			<input type="radio" name="gender" value="female"> <i>Naine</i><br>
+			<input type="radio" name="gender" value="other"> <i>Muu</i><br>
 		<p>
 		
 			<input type="submit" value="Logi sisse">
