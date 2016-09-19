@@ -53,6 +53,18 @@
 		}
 	}
 	
+	if ( isset ( $_POST['year_of_birth'] ) ) {
+		if ( $_POST['year_of_birth'] == 'year' ) {
+			$date_of_birth_Error = 'Välja sünnikuupäev kõik lahtrid on kohustuslikud!';
+		} elseif ( ( $_POST['month_of_birth'] == 'month2' ) AND ( substr( $_POST['year_of_birth'], -4 ) % 4 != 0 ) AND (  in_array ( $_POST['day_of_birth'], $days_more_than_28 ) ) ) {
+			$date_of_birth_Error = 'Valitud kuus ei ole antud aastal niipalju päevi!';
+		} elseif ( ( $_POST['month_of_birth'] == 'month2' ) AND ( substr( $_POST['year_of_birth'], -4 ) % 4 == 0 ) AND (  in_array ( $_POST['day_of_birth'], $days_more_than_29 ) ) ) {
+			$date_of_birth_Error = 'Valitud kuus ei ole antud aastal niipalju päevi!';
+		} elseif ( ( substr( $_POST['year_of_birth'], -4 ) == date('Y') ) AND ( ( substr( $_POST['month_of_birth'], -2 ) > date('m') ) OR ( ( substr( $_POST['month_of_birth'], -2 ) == date('m') ) AND ( substr( $_POST['day_of_birth'], -2 ) > date('d') ) ) ) ) {
+			$date_of_birth_Error = 'Valutid kuupäev pole veel kätte jõudnud.';
+		}
+	}
+	
 	if ( isset ( $_POST['day_of_birth'] ) ) {
 		if ( $_POST['day_of_birth'] == 'day' ) {
 			$date_of_birth_Error = 'Välja sünnikuupäev kõik lahtrid on kohustuslikud!';
@@ -64,16 +76,6 @@
 			$date_of_birth_Error = 'Välja sünnikuupäev kõik lahtrid on kohustuslikud!';
 		} elseif ( in_array( $_POST['month_of_birth'], $not_31_day_months ) AND ( $_POST['day_of_birth'] == 'day31' ) ) {
 			$date_of_birth_Error = 'Valitud kuus ei ole niipalju päevi!';
-		}
-	}
-	
-	if ( isset ( $_POST['year_of_birth'] ) ) {
-		if ( $_POST['year_of_birth'] == 'year' ) {
-			$date_of_birth_Error = 'Välja sünnikuupäev kõik lahtrid on kohustuslikud!';
-		} elseif ( ( $_POST['month_of_birth'] == 'month2' ) AND ( substr( $_POST['year_of_birth'], -4 ) % 4 != 0 ) AND (  in_array ( $_POST['day_of_birth'], $days_more_than_28 ) ) ) {
-			$date_of_birth_Error = 'Valitud kuus ei ole antud aastal niipalju päevi!';
-		} elseif ( ( $_POST['month_of_birth'] == 'month2' ) AND ( substr( $_POST['year_of_birth'], -4 ) % 4 == 0 ) AND (  in_array ( $_POST['day_of_birth'], $days_more_than_29 ) ) ) {
-			$date_of_birth_Error = 'Valitud kuus ei ole antud aastal niipalju päevi!';
 		}
 	}
 	
@@ -138,15 +140,15 @@ turvalisuse mõttes pole vahet, aga ebameeldiv, kui urli pealt PWd lugeda saab
 					<td> 
 						<select name = 'day_of_birth'>
 							<option value = 'day'> --- Päev --- </option>
-							<option	value =	'day1'>	1 </option>
-							<option	value =	'day2'>	2 </option>
-							<option	value =	'day3'>	3 </option>
-							<option	value =	'day4'>	4 </option>
-							<option	value =	'day5'>	5 </option>
-							<option	value =	'day6'>	6 </option>
-							<option	value =	'day7'>	7 </option>
-							<option	value =	'day8'>	8 </option>
-							<option	value =	'day9'>	9 </option>
+							<option	value =	'day01'> 1 </option>
+							<option	value =	'day02'> 2 </option>
+							<option	value =	'day03'> 3 </option>
+							<option	value =	'day04'> 4 </option>
+							<option	value =	'day05'> 5 </option>
+							<option	value =	'day06'> 6 </option>
+							<option	value =	'day07'> 7 </option>
+							<option	value =	'day08'> 8 </option>
+							<option	value =	'day09'> 9 </option>
 							<option	value =	'day10'> 10	</option>
 							<option	value =	'day11'> 11	</option>
 							<option	value =	'day12'> 12	</option>
@@ -172,15 +174,15 @@ turvalisuse mõttes pole vahet, aga ebameeldiv, kui urli pealt PWd lugeda saab
 						</select>
 						<select name = 'month_of_birth'>
 							<option	value = 'month'> --- Kuu --- </option>
-							<option	value = 'month1'> Jaanuar </option>
-							<option	value = 'month2'> Veebruar </option>
-							<option	value = 'month3'> Märts </option>
-							<option	value = 'month4'> Aprill </option>
-							<option	value = 'month5'> Mai </option>
-							<option	value = 'month6'> Juuni </option>
-							<option	value = 'month7'> Juuli </option>
-							<option	value = 'month8'> August </option>
-							<option	value = 'month9'> September </option>
+							<option	value = 'month01'> Jaanuar </option>
+							<option	value = 'month02'> Veebruar </option>
+							<option	value = 'month03'> Märts </option>
+							<option	value = 'month04'> Aprill </option>
+							<option	value = 'month05'> Mai </option>
+							<option	value = 'month06'> Juuni </option>
+							<option	value = 'month07'> Juuli </option>
+							<option	value = 'month08'> August </option>
+							<option	value = 'month09'> September </option>
 							<option	value = 'month10'> Oktoober </option>
 							<option	value = 'month11'> November </option>
 							<option	value = 'month12'> Detsember </option>
