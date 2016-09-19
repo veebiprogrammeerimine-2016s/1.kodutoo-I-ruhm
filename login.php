@@ -89,7 +89,7 @@
 			
 			<br><br>
 			
-			<input name="signupSex" type="sex" placeholder="Sugu-M/N"><?php echo $signupSexError;?>
+			<input name="signupSex" type="sex" placeholder="Sugu M/N"><?php echo $signupSexError;?>
 			
 			<br><br>
 		
