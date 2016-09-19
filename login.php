@@ -2,7 +2,7 @@
 
 	//var_dump($_GET);
 	//echo "<br>";
-    //var_dump($_POST);
+    var_dump($_POST);
 	
 	$signupEmailError = "";
 	$signupPasswordError = "";
@@ -109,10 +109,13 @@
 		
 		<form method ="post">
 
-
-			<label><h3>E-post:<span class = 'redtext'>*</span></h3></label>
-            <input name = "signupEmail" type ="email" placeholder = "E-post"> <span class = 'redtext'><?php echo $signupEmailError;?></span>
+            <tr>
+                <td><label>E-post:<span class = 'redtext'>*</span></label></td>
+                <td><input name = "signupEmail" type ="email" placeholder = "E-post"> </td>
+                <td><span class = 'redtext'><?php echo $signupEmailError;?></span></td>
             <br><br>
+                
+            </tr> 
 			
 			<label><h3>Parool:<span class = 'redtext'>*</span></h3></label>
 
