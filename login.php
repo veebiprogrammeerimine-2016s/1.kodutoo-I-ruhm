@@ -82,14 +82,14 @@
 
         }
 
-        .tg  {border-collapse:collapse;border-spacing:0;}
-        .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 20px;border-style:none;overflow:hidden;word-break:normal;}
-        .tg .tg-pf96{font-weight:bold;color:#f00b0b;vertical-align:top}
-        .tg .tg-e3zv{font-weight:bold}
-        .tg .tg-daml{font-weight:bold;color:#f00b0b}
-        .tg .tg-lqy6{text-align:right;vertical-align:top}
-        .tg .tg-yw4l{vertical-align:top}
-        .tg .tg-9hbo{font-weight:bold;vertical-align:top}
+        .table1  {border-collapse:collapse;border-spacing:0;}
+        .table1 td{font-family:Arial, sans-serif;font-size:14px;padding:5px;border-style:none;overflow:hidden;word-break:normal;}
+        .table1 .table1-style1{font-weight:bold;color:#f00b0b;vertical-align:top}
+        .table1 .table1-style2{font-weight:bold}
+        .table1 .table1-style3{font-weight:bold;color:#f00b0b}
+        .table1 .table1-style4{text-align:right;vertical-align:top}
+        .table1 .table1-style5{vertical-align:top}
+        .table1 .table1-style6{font-weight:bold;vertical-align:top}
 
     </style>
 </head>
@@ -119,33 +119,33 @@
 		<h1>Loo kasutaja:</h1>
 		
 		<form method ="post">
-            <table class="tg">
+            <table class="table1">
                 <tr>
-                    <td class="tg-e3zv">E-post:<span class = 'redtext'>*</span></td>
-                    <td class="tg-yw4l"><input name = "signupEmail" type ="email" placeholder = "E-post"></td>
-                    <td class="tg-daml"><span class = 'redtext'><?php echo $signupEmailError;?></span></td>
+                    <td class="table1-style2">E-post:<span class = 'redtext'>*</span></td>
+                    <td class="table1-style5"><input name = "signupEmail" type ="email" placeholder = "E-post"></td>
+                    <td class="table1-style3"><span class = 'redtext'><?php echo $signupEmailError;?></span></td>
                 </tr>
                 <tr>
-                    <td class="tg-e3zv">Parool:<span class = 'redtext'>*</span></td>
-                    <td class="tg-yw4l"><input name = "signupPassword" type ="password" placeholder = "Parool"></td>
-                    <td class="tg-daml"><span class = 'redtext'><?php echo $signupPasswordError;?></span></td>
+                    <td class="table1-style2">Parool:<span class = 'redtext'>*</span></td>
+                    <td class="table1-style5"><input name = "signupPassword" type ="password" placeholder = "Parool"></td>
+                    <td class="table1-style3"><span class = 'redtext'><?php echo $signupPasswordError;?></span></td>
                 </tr>
                 <tr>
-                    <td class="tg-9hbo">Sünnipäev:<span class = 'redtext'>*</span></td>
-                    <td class="tg-yw4l"><input  name="signupBday" type ="date" min="1900-01-01" max = "<?php echo date('Y-m-d'); ?>" value = "1995-02-25"></td>
-                    <td class="tg-pf96"><span class = 'redtext'><?php echo $signupBdayError;?></span></td>
+                    <td class="table1-style6">Sünnipäev:<span class = 'redtext'>*</span></td>
+                    <td class="table1-style5"><input  name="signupBday" type ="date" min="1900-01-01" max = "<?php echo date('Y-m-d'); ?>" value = "1995-02-25"></td>
+                    <td class="table1-style1"><span class = 'redtext'><?php echo $signupBdayError;?></span></td>
                 </tr>
                 <tr>
-                    <td class="tg-9hbo">Sugu:<span class = 'redtext'>*</span></td>
-                    <td class="tg-yw4l">
+                    <td class="table1-style6">Sugu:<span class = 'redtext'>*</span></td>
+                    <td class="table1-style5">
                         <input type="radio" name="signupGender" value="male" checked> Mees<br>
                         <input type="radio" name="signupGender" value="female"> Naine<br>
                         <input type="radio" name="signupGender" value="unspecified"> Ei soovi avaldada
-                    <td class="tg-pf96"></td>
+                    <td class="table1-style1"></td>
                 </tr>
                 <tr>
-                    <td class="tg-9hbo">Autohuvid<span class = 'redtext'>*</span></td>
-                    <td class="tg-yw4l">
+                    <td class="table1-style6">Autohuvid:<span class = 'redtext'>*</span></td>
+                    <td class="table1-style5">
                         <input type="hidden" name="signupCarPref1"  value="">
                         <input type="hidden" name="signupCarPref2"  value="">
                         <input type="hidden" name="signupCarPref3"  value="">
@@ -156,10 +156,12 @@
                         <input type="checkbox" name="signupCarPref3" value="japcars"> Jaapani autod<br>
                         <input type="checkbox" name="signupCarPref4" value="ruscars"> Vene autod<br>
                         <input type="checkbox" name="signupCarPref5" value="korcars"> Korea autod</td>
-                    <td class="tg-pf96"><span class = 'redtext'><?php echo $signupCarPrefError;?></span></td>
+                    <td class="table1-style1"><span class = 'redtext'><?php echo $signupCarPrefError;?></span></td>
                 </tr>
                 <tr>
-                    <td class="tg-lqy6" colspan="3"><input type ="submit" value = "Loo kasutaja"></td>
+                    <td></td>
+                    <td class="table1-style4"><input type ="submit" value = "Loo kasutaja"></td>
+                    <td></td>
                 </tr>
             </table>
 		</form>
