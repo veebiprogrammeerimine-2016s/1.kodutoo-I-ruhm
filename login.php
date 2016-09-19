@@ -2,7 +2,7 @@
 
 	//var_dump($_GET);
 	//echo "<br>";
-    var_dump($_POST);
+    //var_dump($_POST);
 	
 	$signupEmailError = "";
 	$signupPasswordError = "";
@@ -74,12 +74,23 @@
 		<title>Login page</title>
 
     <style>
+
         .redtext {
 
             color: red;
             font-weight: bold;
 
         }
+
+        .tg  {border-collapse:collapse;border-spacing:0;}
+        .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 20px;border-style:none;overflow:hidden;word-break:normal;}
+        .tg .tg-pf96{font-weight:bold;color:#f00b0b;vertical-align:top}
+        .tg .tg-e3zv{font-weight:bold}
+        .tg .tg-daml{font-weight:bold;color:#f00b0b}
+        .tg .tg-lqy6{text-align:right;vertical-align:top}
+        .tg .tg-yw4l{vertical-align:top}
+        .tg .tg-9hbo{font-weight:bold;vertical-align:top}
+
     </style>
 </head>
 
@@ -108,48 +119,49 @@
 		<h1>Loo kasutaja:</h1>
 		
 		<form method ="post">
-
-            <tr>
-                <td><label>E-post:<span class = 'redtext'>*</span></label></td>
-                <td><input name = "signupEmail" type ="email" placeholder = "E-post"> </td>
-                <td><span class = 'redtext'><?php echo $signupEmailError;?></span></td>
-            <br><br>
-                
-            </tr> 
-			
-			<label><h3>Parool:<span class = 'redtext'>*</span></h3></label>
-
-			<input name = "signupPassword" type ="password" placeholder = "Parool"> <span class = 'redtext'><?php echo $signupPasswordError;?></span>
-			<br><br>
-
-			<label><h3>Sünnipäev:<span class = 'redtext'>*</span></h3></label>
-			<input  name="signupBday" type ="date" min="1900-01-01" max = "<?php echo date('Y-m-d'); ?>" value = "1995-02-25"> <span class = 'redtext'><?php echo $signupBdayError;?></span>
-            <br><br>
-
-			<label><h3>Sugu:<span class = 'redtext'>*</span></h3></label> <!--- Ошибки быть не может, ибо по дефолту хоть какой-то radiobutton выбран---->
-			<input type="radio" name="signupGender" value="male" checked> Mees <br>
-			<input type="radio" name="signupGender" value="female"> Naine <br>
-			<input type="radio" name="signupGender" value="unspecified"> Ei soovi avaldada
-			<br><br>
-
-            <label><h3>Millistes autodes oled huvitatud:<span class = 'redtext'>*</span></h3></label>
-
-            <!---- Тут немного пришлось подумать, не сразу понял, что если галочки нет, то string вообще не возвращается, пришлось придавать ему значение, не знаю, правильно ли---->
-
-            <input type="hidden" name="signupCarPref1"  value="">
-            <input type="hidden" name="signupCarPref2"  value="">
-            <input type="hidden" name="signupCarPref3"  value="">
-            <input type="hidden" name="signupCarPref4"  value="">
-            <input type="hidden" name="signupCarPref5"  value="">
-            <input type="checkbox" name="signupCarPref1" value="eucars"> Euroopa autod<br>
-            <input type="checkbox" name="signupCarPref2" value="uscars"> Ameerika autod<br>
-            <input type="checkbox" name="signupCarPref3" value="japcars"> Jaapani autod <br>
-            <input type="checkbox" name="signupCarPref4" value="ruscars"> Vene autod<br>
-            <input type="checkbox" name="signupCarPref5" value="korcars"> Korea autod<br><span class = 'redtext'><?php echo $signupCarPrefError;?></span>
-            <br><br>
-
-			<input type ="submit" value = "Loo kasutaja">
-
+            <table class="tg">
+                <tr>
+                    <td class="tg-e3zv">E-post:<span class = 'redtext'>*</span></td>
+                    <td class="tg-yw4l"><input name = "signupEmail" type ="email" placeholder = "E-post"></td>
+                    <td class="tg-daml"><span class = 'redtext'><?php echo $signupEmailError;?></span></td>
+                </tr>
+                <tr>
+                    <td class="tg-e3zv">Parool:<span class = 'redtext'>*</span></td>
+                    <td class="tg-yw4l"><input name = "signupPassword" type ="password" placeholder = "Parool"></td>
+                    <td class="tg-daml"><span class = 'redtext'><?php echo $signupPasswordError;?></span></td>
+                </tr>
+                <tr>
+                    <td class="tg-9hbo">Sünnipäev:<span class = 'redtext'>*</span></td>
+                    <td class="tg-yw4l"><input  name="signupBday" type ="date" min="1900-01-01" max = "<?php echo date('Y-m-d'); ?>" value = "1995-02-25"></td>
+                    <td class="tg-pf96"><span class = 'redtext'><?php echo $signupBdayError;?></span></td>
+                </tr>
+                <tr>
+                    <td class="tg-9hbo">Sugu:<span class = 'redtext'>*</span></td>
+                    <td class="tg-yw4l">
+                        <input type="radio" name="signupGender" value="male" checked> Mees<br>
+                        <input type="radio" name="signupGender" value="female"> Naine<br>
+                        <input type="radio" name="signupGender" value="unspecified"> Ei soovi avaldada
+                    <td class="tg-pf96"></td>
+                </tr>
+                <tr>
+                    <td class="tg-9hbo">Autohuvid<span class = 'redtext'>*</span></td>
+                    <td class="tg-yw4l">
+                        <input type="hidden" name="signupCarPref1"  value="">
+                        <input type="hidden" name="signupCarPref2"  value="">
+                        <input type="hidden" name="signupCarPref3"  value="">
+                        <input type="hidden" name="signupCarPref4"  value="">
+                        <input type="hidden" name="signupCarPref5"  value="">
+                        <input type="checkbox" name="signupCarPref1" value="eucars"> Euroopa autod<br>
+                        <input type="checkbox" name="signupCarPref2" value="uscars"> Ameerika autod<br>
+                        <input type="checkbox" name="signupCarPref3" value="japcars"> Jaapani autod<br>
+                        <input type="checkbox" name="signupCarPref4" value="ruscars"> Vene autod<br>
+                        <input type="checkbox" name="signupCarPref5" value="korcars"> Korea autod</td>
+                    <td class="tg-pf96"><span class = 'redtext'><?php echo $signupCarPrefError;?></span></td>
+                </tr>
+                <tr>
+                    <td class="tg-lqy6" colspan="3"><input type ="submit" value = "Loo kasutaja"></td>
+                </tr>
+            </table>
 		</form>
 
 </body>
