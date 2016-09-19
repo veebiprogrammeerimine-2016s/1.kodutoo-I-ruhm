@@ -85,14 +85,6 @@
 		<h1>Loo kasutaja</h1>
 		<form method="POST">
 		
-			<input name="SignupEmail" type="email" placeholder="E-post"> <?php echo $SignupEmailError; ?>
-		
-			<br><br>
-		
-			<input name="SignupPassword" type="password" placeholder="Parool"> <?php echo $SignupPasswordError; ?>
-			
-			<br><br>
-			
 			<input name="signupAge" type="age" placeholder="Vanus"><?php echo $signupAgeError;?>
 			
 			<br><br>
@@ -100,10 +92,29 @@
 			<input name="signupSex" type="sex" placeholder="Sugu-M/N"><?php echo $signupSexError;?>
 			
 			<br><br>
+		
+			<input name="SignupEmail" type="email" placeholder="E-post"> <?php echo $SignupEmailError; ?>
+		
+			<br><br>
+		
+			<input name="SignupPassword" type="password" placeholder="Parool"> <?php echo $SignupPasswordError; ?>
 			
+			<br><br>
+						
 			<input type="submit" value="Loo kasutaja">
 			
 		</form>
 
+<!--Veebirakenduse idee kirjeldus - Abivahend kasutaja tervisliku seisundi hindamiseks
+	Rakenduse aluseks on kasutaja poolt sammulugejaga kogutud andmed: sammude arv päevas ja käidud maa pikkus km-s. Rakendus aitab kasutajal 
+	lugeja andmeid kompaktselt hoida ja analüüsida kuu lõpus saadud tulemusi. Andmed näitavad, kas juba tekkinud terviseprobleemid on tekkinud vähesest
+	liikumisest või on vähese liikumise tõttu soodumus terviseprobleemide tekkeks. Aluseks tuleks võtta soovituslik sammude arv päevas - 7000, millega
+	oma päevast sammude arvu võrrelda. Rakendusse sisestatavad andmed on järgmised: kuupäev, nädalapäev, sammude arv, käidud maa pikkus km-s. 
+	Andmete põhjal on võimalik vastata küsimustele:
+	Millised on kasutaja liikumisharjumused (kas sammude arvud on pigem väikesed või suuremad)?
+	Mitu sammu kasutaja keskmiselt päevas teeb?
+	Kas mingitel nädalapäevadel (näiteks laupäev või pühapäev) käidud sammude arv erineb tunduvalt tavapärasest?-->
+
 	</body>
 </html>
+
