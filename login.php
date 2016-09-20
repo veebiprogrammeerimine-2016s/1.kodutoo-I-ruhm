@@ -1,11 +1,9 @@
 <?php
 
-  //var_dump($_GET);
-  //echo "<br>";
-  //var_dump($_POST);
-
   $singupEmailError = "";
   $singupPasswordError = "";
+  $singupPhoneError = "";
+  $singupSuguError = "";
 
   // Kas epost oli olemas
   if ( isset($_POST["signupEmail"]) ) {
@@ -37,7 +35,16 @@
       }
 
   }
+  if ( isset($_POST["signupPhone"]) ) {
 
+      if ( empty($_POST["signupPhone"]) ) {
+
+        //Telefoni kontroll
+        $singupPhoneError = "See väli on kohustuslik";
+
+      }
+
+  }
 
 ?>
 
@@ -49,13 +56,14 @@
 <body>
 
   <h1>Logi sisse</h1>
+
   <form method="POST">
 
     <label>E-post</label><br>
     <input name="loginEmail" type="email" placeholder="Sisestage e-mail">
     <br>
     <label>Parool</label><br>
-    <input name="loginPassword" type="password" placeholder="Sisestage parool">
+    <input name="loginPassword" type="tel" placeholder="Sisestage parool">
     <br><br>
     <input type="submit" value="Logis sisse">
 
@@ -69,6 +77,14 @@
     <br>
     <label>Parool</label><br>
     <input name="signupPassword" type="password" placeholder="Sisestage parool"> <?php echo $singupPasswordError; ?>
+    <br>
+    <label>Telefon</label><br>
+    <input name="signupPhone" type="number" placeholder="Sisestage telefon"> <?php echo $singupPhoneError; ?>
+    <br>
+    <label>Sugu</label><br>
+    <input type="radio" name="signupSugu" value="mees" checked> Mees<br>
+    <input type="radio" name="signupSugu" value="naine"> Naine<br>
+    <input type="radio" name="signupSugu" value="Wut?"> Wut?
     <br><br>
     <input type="submit" value="Loo kasutaja">
 
