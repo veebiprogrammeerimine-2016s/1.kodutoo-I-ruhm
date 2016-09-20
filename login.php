@@ -17,9 +17,10 @@ if(isset($_POST["signupEmail"])){
 if(isset($_POST["signupPassword"])){
 	if(empty($_POST["signupPassword"])){
 		$signupPasswordError="<i>See väli on kohustuslik!<i>";
-	}else{
-		if(strlen($_POST["signupPassword"]) <8 ){
-			$signupPasswordError="<i>Parool peab olema vähemalt 8 tähemärki pikk!</i>";
+
+		else{
+			if(strlen($_POST["signupPassword"]) <8 ){
+				$signupPasswordError="<i>Parool peab olema vähemalt 8 tähemärki pikk!</i>";
 		}
 	}
 }
@@ -77,12 +78,15 @@ if(isset($_POST["loginPassword"])){
 
 				<br>
 
-			<input type="checkbox" name="male" value="male"> Mees
-			<input type="checkbox" name="female" value="female"> Naine
+			<input type="radio" name="male" value="male"> Mees
+			<input type="radio" name="female" value="female"> Naine
 
 				<br><br>
 
 			<label>Sünnikuupäev</label>
+
+				<br>
+
 			<input type="date" name="birthdate">
 
 				<br><br>
