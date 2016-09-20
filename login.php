@@ -9,7 +9,7 @@ $signupEmailError = "";
 if (isset ($_POST["signupEmail"])){
 	if (empty ($_POST ["signupEmail"])){
 		$signupEmailError = "See vali on kohustuslik";
-	//Kui email oli tühi
+	//Kui email oli tÃ¼hi
 	
 	}
 }
@@ -21,7 +21,7 @@ if (isset ($_POST["signupEmail"])){
 			
 		
 	}else{
-		//Siia jõuan siis, kui parool oli olemas ja parool, ei olnud tühi. !ELSE!
+		//Siia jÃµuan siis, kui parool oli olemas ja parool, ei olnud tÃ¼hi. !ELSE!
 			if(strlen($_POST["signupPassword"])<8) {
 				
 				$signupPasswordError = "Parool peab olema vahemalt 8 marki pikk"; 
@@ -42,7 +42,7 @@ if (isset ($_POST["signupEmail"])){
 <html>
 <title>Sisselogimise lehekulg</title>
 <body>
-<!-- sedasi käivad kommentaarid! -->
+<!-- sedasi kÃ¤ivad kommentaarid! -->
 <!-- label annab inputile nimetuse -->
 <h1>Logi sisse</h1>
 
@@ -57,6 +57,7 @@ if (isset ($_POST["signupEmail"])){
 	<br><br>
 	
 	<input type="submit" value="Logi sisse">
+	<input type="submit" value="Unustasin parooli"
 	
 	<h1>Loo kasutaja</h1>
 
@@ -68,6 +69,14 @@ if (isset ($_POST["signupEmail"])){
 	
 	<label>Parool</label><br>
 	<input name="signupPassword" type="password"> <?php echo $signupPasswordError; ?>
+	<br><br>
+	
+	<label>Ees- ja perekonnanimi</label><br>
+	<input name="signupname" type="name">
+	<br><br>
+	
+	<label>Vanus</label><br>
+	<input name="signupage" type="age"
 	<br><br>
 	
 	<input type="submit" value="Registreeru">
