@@ -76,7 +76,7 @@ if(isset($_POST["loginPassword"])){
 			<label>Parool</label>
 			<input password="signupPassword" type="password"> <?php echo $signupPasswordError; ?>
 
-				<br><br>
+		</form>
 
 			<label>Sugu:</label>
 
@@ -96,8 +96,6 @@ if(isset($_POST["loginPassword"])){
 				<br><br>
 
 			<input type="submit" value="Loo kasutaja">
-
-		</form>
 
 	</body>
 
