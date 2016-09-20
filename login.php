@@ -27,13 +27,13 @@ if(isset($_POST["signupPassword"])){
 
 if(isset($_POST["loginEmail"])){
 	if(empty($_POST["loginEmail"])){
-		$loginEmailError="<i>See väli on kohustuslik!<i>";
+		$loginEmailError="<i>See väli on kohustuslik!</i>";
 	}
 }
 
 if(isset($_POST["loginPassword"])){
 	if(empty($_POST["loginPassword"])){
-		$loginPasswordError="<i>See väli on kohustuslik!<i>";
+		$loginPasswordError="<i>See väli on kohustuslik!</i>";
 	}
 }
 
@@ -62,6 +62,9 @@ if(isset($_POST["loginPassword"])){
 
 			<input type="submit" value="Logi sisse">
 	</body>
+
+</html>
+<html>
 
 	<body>
 
