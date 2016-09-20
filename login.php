@@ -27,7 +27,7 @@
 	}
 
 	
-	// siin jäi töö poolikuks, sest ei osanud mitme valiku puhul määrata, mis saab siis, kui kasutaja jätab soo määramata.
+	// püüdsin teha w3schools materjalide põhjal, kuid siin jäi töö poolikuks, sest ei osanud mitme valiku puhul määrata, mis saab siis, kui kasutaja jätab soo määramata.
 	if (isset ($_POST["signupGender"]) ) {
 	
 		if (empty ($_POST["signupGender"]) ) { 
@@ -84,9 +84,11 @@
 			
 			<label>Sugu</label><br>
 			
-			<input name="signupGender" type="radio" value="male"> Mees<br>
-			<input name="signupGender" type="radio" value="female"> Naine<br>
-			<input name="signupGender" type="radio" value="other"> Ei soovi avaldada
+			<input name="signupGender" type="radio" <?php if (isset($signupGender) && $signupGender=="male") echo "checked";?> value="male"> Mees<?php echo $signupGenderError; ?>
+			<br>
+			<input name="signupGender" type="radio" <?php if (isset($signupGender) && $signupGender=="female") echo "checked";?> value="female"> Naine<?php echo $signupGenderError; ?>
+			<br>
+			<input name="signupGender" type="radio" <?php if (isset($signupGender) && $signupGender=="other") echo "checked";?> value="other"> Ei soovi avaldada<?php echo $signupGenderError; ?>
 			
 			<br><br>
 		
@@ -99,4 +101,5 @@
 		</form>
 		
 	</body>
+
 </html>
