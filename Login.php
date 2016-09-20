@@ -52,7 +52,7 @@
 			$signup_email_Error = 'Väli E-post on kohustuslik!';
 		}
 	}
-	
+/*	
 	if ( isset ( $_POST['year_of_birth'] ) ) {
 		if ( $_POST['year_of_birth'] == 'year' ) {
 			$date_of_birth_Error = 'Välja sünnikuupäev kõik lahtrid on kohustuslikud!';
@@ -64,7 +64,7 @@
 			$date_of_birth_Error = 'Valutid kuupäev pole veel kätte jõudnud.';
 		}
 	}
-	
+*/	
 	if ( isset ( $_POST['day_of_birth'] ) ) {
 		if ( $_POST['day_of_birth'] == 'day' ) {
 			$date_of_birth_Error = 'Välja sünnikuupäev kõik lahtrid on kohustuslikud!';
@@ -76,6 +76,18 @@
 			$date_of_birth_Error = 'Välja sünnikuupäev kõik lahtrid on kohustuslikud!';
 		} elseif ( in_array( $_POST['month_of_birth'], $not_31_day_months ) AND ( $_POST['day_of_birth'] == 'day31' ) ) {
 			$date_of_birth_Error = 'Valitud kuus ei ole niipalju päevi!';
+		}
+	}
+	
+	if ( isset ( $_POST['year_of_birth'] ) ) {
+		if ( $_POST['year_of_birth'] == 'year' ) {
+			$date_of_birth_Error = 'Välja sünnikuupäev kõik lahtrid on kohustuslikud!';
+		} elseif ( ( $_POST['month_of_birth'] == 'month02' ) AND ( ( substr( $_POST['year_of_birth'], -4 ) % 4 != 0 ) OR ( ( substr( $_POST['year_of_birth'], -4 ) % 400 != 0 ) AND ( substr( $_POST['year_of_birth'], -4 ) % 100 == 0 ) ) ) AND (  in_array ( $_POST['day_of_birth'], $days_more_than_28 ) ) ) {
+			$date_of_birth_Error = 'Valitud kuus ei ole antud aastal niipalju päevi!';
+		} elseif ( ( $_POST['month_of_birth'] == 'month02' ) AND ( substr( $_POST['year_of_birth'], -4 ) % 4 == 0 ) AND (  in_array ( $_POST['day_of_birth'], $days_more_than_29 ) ) ) {
+			$date_of_birth_Error = 'Valitud kuus ei ole antud aastal niipalju päevi!';
+		} elseif ( ( substr( $_POST['year_of_birth'], -4 ) == date('Y') ) AND ( ( substr( $_POST['month_of_birth'], -2 ) > date('m') ) OR ( ( substr( $_POST['month_of_birth'], -2 ) == date('m') ) AND ( substr( $_POST['day_of_birth'], -2 ) > date('d') ) ) ) ) {
+			$date_of_birth_Error = 'Valutid kuupäev pole veel kätte jõudnud.';
 		}
 	}
 	
