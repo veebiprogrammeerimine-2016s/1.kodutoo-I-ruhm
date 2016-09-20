@@ -16,9 +16,9 @@ if(isset($_POST["signupEmail"])){
 
 if(isset($_POST["signupPassword"])){
 	if(empty($_POST["signupPassword"])){
-		$signupPasswordError="<i>See väli on kohustuslik!<i>";
+		$signupPasswordError="<i>See väli on kohustuslik!</i>";
 
-		else{
+		}else{
 			if(strlen($_POST["signupPassword"]) <8 ){
 				$signupPasswordError="<i>Parool peab olema vähemalt 8 tähemärki pikk!</i>";
 		}
@@ -61,8 +61,13 @@ if(isset($_POST["loginPassword"])){
 				<br><br>
 
 			<input type="submit" value="Logi sisse">
+	</body>
+
+	<body>
 
 		<h2>Loo uus kasutaja:</h2>
+
+		<form method="POST">
 
 			<label>E-mail</label>
 			<input email="signupEmail" type="email"> <?php echo $signupEmailError; ?>
