@@ -62,7 +62,11 @@ if(isset($_POST["loginPassword"])){
 
 			<input type="submit" value="Logi sisse">
 
+		</form>
+
 		<h2>Loo uus kasutaja:</h2>
+
+		<form method="POST">
 
 			<label>E-mail</label>
 			<input email="signupEmail" type="email"> <?php echo $signupEmailError; ?>
@@ -78,8 +82,8 @@ if(isset($_POST["loginPassword"])){
 
 				<br>
 
-			<input type="radio" name="male" value="male"> Mees
-			<input type="radio" name="female" value="female"> Naine
+			<input type="radio" name="male" value="xxx"> Mees
+			<input type="radio" name="female" value="xxx"> Naine
 
 				<br><br>
 
