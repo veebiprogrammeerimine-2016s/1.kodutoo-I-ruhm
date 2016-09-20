@@ -1,11 +1,13 @@
 <?php
-
+//mvp idee - 
 	//var_dump($_GET);
 	//echo "<br>";
 	//var_dump($_POST);
 	
 	$signupEmailError = "";
 	$signupPasswordError = "";
+	$loginEmailError = "";
+	$loginPasswordError = "";
 	
 	// kas e-post oli olemas
 	
@@ -35,49 +37,74 @@
 				}
 			}
 		}
+		
+	if ( isset ( $_POST["loginEmail"] ) ) {
+			
+		if ( empty ( $_POST["loginEmail"] ) ) {
+				
+			$loginEmailError = "Insert your e-mail!";
+				
+		}
+			
+	}
+
+	if ( isset ( $_POST["loginPassword"] ) ) {
+		
+		if ( empty ($_POST["loginPassword"] ) ) {
+			
+			$loginPasswordError = "Insert your password!";
+			
+		}
+		
+	}
 ?>
 
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Sisselogimise lehekülg</title>
+		<title>Log in or Sign up</title>
 	</head>
 	<body>
 
-		<h1>Logi sisse</h1>
-		
+	<h1>Log in</h1>
 		<form method = "POST">
-		
-			<lable>E-mail</lable><br> 
-			<input name = "loginEmail" type = "email" placeholder = "E-mail">
-			
-			<br><br>
-			<lable>Password</lable><br>
-			<input name = "loginPassword" type = "password" placeholder = "Password">
-			
-			<br><br>
-			
-			<input  type = "submit" value="Logi sisse">
-			
-			
-		<h1>Sign up</h1>
-		
+			<fieldset>
+				<legend>Existing users.</legend>
+				<lable>E-mail</lable><br> 
+				<input name = "loginEmail" type = "email" placeholder = "E-mail"> <?php echo $loginEmailError; ?>
+				
+				<br><br>
+				<lable>Password</lable><br>
+				<input name = "loginPassword" type = "password" placeholder = "Password"> <?php echo $loginPasswordError?>
+				
+				<br><br>
+				
+				<input  type = "submit" value="Log in">
+			</fieldset>	
 		</form>
-
-				<form method = "POST">
 		
-			<lable>E-mail</lable><br> 
-			<input name = "signupEmail" type = "email" placeholder = "E-mail"> <?php  echo $signupEmailError; ?>
-			
-			<br><br>
-			<lable>Password</lable><br>
-			<input name = "signupPassword" type = "password" placeholder = "Password"> <?php  echo $signupPasswordError; ?>
-			
-			<br><br>
-			
-			<input  type = "submit" value="Sign up">
-			
-			
+	<h1>Sign up</h1>
+		<form method = "POST">
+			<fieldset>
+				<legend>Create a new user.</legend>
+				<lable>E-mail</lable><br> 
+				<input name = "signupEmail" type = "email" placeholder = "E-mail"> <?php  echo $signupEmailError; ?>
+				
+				<br><br>
+				<lable>Password</lable><br>
+				<input name = "signupPassword" type = "password" placeholder = "Password"> <?php  echo $signupPasswordError; ?>
+				
+				<br><br>
+				<lable>Gender</lable><br>
+				<input type="radio" name="gender" value="female" checked>Female <input type="radio" name="gender" value="male" >Male 
+				<br><br>
+				
+				<lable>Date of Birth</lable><br>
+				<input type="date" name="bday">
+				<br><br>
+				<input  type = "submit" value="Sign up">
+			</fieldset>
 		</form>
 	</body>
 </html>
+
