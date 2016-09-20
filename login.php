@@ -61,16 +61,8 @@ if(isset($_POST["loginPassword"])){
 				<br><br>
 
 			<input type="submit" value="Logi sisse">
-	</body>
-
-</html>
-<html>
-
-	<body>
 
 		<h2>Loo uus kasutaja:</h2>
-
-		<form method="POST">
 
 			<label>E-mail</label>
 			<input email="signupEmail" type="email"> <?php echo $signupEmailError; ?>
