@@ -51,7 +51,7 @@ if(isset($_POST["loginPassword"])){
 
 		<form method="POST">
 			
-			<input name="loginEmail" type="email" palceholder="E-Mail"> <?php echo $loginEmailError; ?>
+			<input name="loginEmail" type="email" placeholder="E-Mail"> <?php echo $loginEmailError; ?>
 
 				<br><br>
 
@@ -59,7 +59,7 @@ if(isset($_POST["loginPassword"])){
 
 				<br><br>
 
-			<input type="submit" value="Logi sisse!">
+			<input type="submit" value="Logi sisse">
 
 		<h2>Loo uus kasutaja:</h2>
 
@@ -73,9 +73,9 @@ if(isset($_POST["loginPassword"])){
 
 				<br><br>
 
-			<label>Sugu</label>
+			<label>Sugu:</label>
 
-				<br><br>
+				<br>
 
 			<input type="checkbox" name="male" value="male"> Mees
 			<input type="checkbox" name="female" value="female"> Naine
