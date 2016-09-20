@@ -74,14 +74,18 @@ if(isset($_POST["loginPassword"])){
 				<br><br>
 
 			<label>Sugu</label>
+
+				<br><br>
+
 			<input type="checkbox" name="male" value="male"> Mees
-
-				<br>
-
 			<input type="checkbox" name="female" value="female"> Naine
+
+				<br><br>
 
 			<label>Sünnikuupäev</label>
 			<input type="date" name="birthdate">
+
+				<br><br>
 
 			<input type="submit" value="Loo kasutaja">
 
