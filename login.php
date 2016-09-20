@@ -82,8 +82,8 @@ if(isset($_POST["loginPassword"])){
 
 				<br>
 
-			<input type="radio" name="male" value="xxx"> Mees
-			<input type="radio" name="female" value="xxx"> Naine
+			<input type="radio" name="male" value="male"> Mees
+			<input type="radio" name="female" value="female"> Naine
 
 				<br><br>
 
