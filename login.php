@@ -116,9 +116,11 @@
 		<body>
 		<h1>MVP IDEE</h1>
 		<p>
-	    TLU ühiselamute elanikele mõeldud veebileht - kuulutused, sündmused, suhtlemise võimalus. <br>
-		Saadaval on kõik vajalik informatsioon, ka selline, millist ei ole
-		ametlikul veebilehel nt. pesumasinate kasutamise järjekord, väravate sulgemisajad jne. 
+	    League of legends art community 
+		<p>
+		veebileht inimestele, kes on huvitatud arvutimängust League of Legends ja joonistavad/harrastavad sellega seotuid fan art'e.
+		<p> on võimalus lisada enda joonistusi, hinnata teiste fan art'e.
+		<p> On ka olemas kommenteerimise võimalus,paremuse lehekülg, portfolio loomise võimalus.
 		</body>
 		</html>
 	
