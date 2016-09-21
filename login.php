@@ -72,7 +72,14 @@
 		<title>Sisselogimise lehekülg</title>
 	</head>
 	<body bgcolor = "#C1FFFD">
-	<IMG STYLE="position:absolute; BOTTOM:0px; RIGHT:0px" SRC="http://orig02.deviantart.net/b294/f/2014/266/1/d/braum_render_by_void_zormak-d809wg3.png">
+	<style>	
+		body {
+			background-image:	url("http://orig02.deviantart.net/b294/f/2014/266/1/d/braum_render_by_void_zormak-d809wg3.png");
+			background-repeat: no-repeat;
+			background-position: right bottom;
+			background-attachment: fixed;
+			}
+	</style>
 
 
 		<h1><font color = "blue">Logi sisse</font></h1>
