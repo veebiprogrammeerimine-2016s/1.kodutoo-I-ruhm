@@ -1,112 +1,120 @@
 <?php
-// Loo kasutaja.
-// kasutajanimi
-// parool
-// email
-// salvestamis nupp (LOO)
-
-// Kaks erinevat sildistamise viisi. Atribuut label või element label e. silt.
-// Connecting label and input. Google this later.
-// Input on üks vähestest elementidest, millel pole olemas lõppu.
-// Atribuutide järiekord ei oma tähtsust.
+// 
 
 
-// GET ja POST meetod. 
-// GET on igaühele ligipääsetavad. 
-// POST on varjatud informatsiooni jaoks nagu password, kustutamistegevused jne.
 
 
-?>
-
-
-<?php
-
-	//GET ja POST muutujad
 	//var_dump($_GET);
 	//echo "<br>";
 	//var_dump($_POST);
 	
-	$signupEmailError = "";
-	$signupPasswordError = "";
-	$lowPasswordError = "";
+	$signupEmailerror = "";
 
-	
-	//$_POST["signEmail"]
-	//$_POST["signEmail"]
-	
-	//isset küsib kas selline asi on olemas
-	if(isset($_POST["signEmail"])){
+	//kas e-post oli olemas
+	if (isset ($_POST["signupEmail"])) {
 		
-		//jah on olemas
-		//kas on tühi
-		if(empty($_POST["signEmail"])){
-			$signupEmailError = "See väli on kohustuslike.";
-		}
-	}
-
-	if(isset($_POST["signupPassword"])){
-		if(empty($_POST["signupPassword"])){
-			$signupPasswordError= "See väli on kohustuslik.";	
-		}
-	}
-
-	
-	if(isset($_POST["signupPassword"])){
-		if(strlen($_POST["signupPassword"])<16){
-			echo "you sick bastard.";
-		}
+		if (empty ($_POST ["signupEmail"])) {
+			//oli e-post, kuid see oli tühi
+			$signupEmailerror = "See väli on kohustuslik!";
+		}	
 	}
 	
-?>
+	$signupPassworderror = "";
 
-<?php 
-	//GET ja POSTi muutujad
-	//var_dump($_GET);
-	//echo "<br>";
-	//var_dump($_POST);
-	
-	$signupEmailError = "";
-	
-	// on üldse olemas selline muutja
-	if( isset( $_POST["signupEmail"] ) ){
+	//kas parool oli olemas
+	if (isset ($_POST["signupPassword"])) {
 		
-		//jah on olemas
-		//kas on tühi
-		if( empty( $_POST["signupEmail"] ) ){
+		if (empty ($_POST ["signupPassword"])) {
+			//oli parool, kuid see oli tühi
+			$signupPassworderror = "See väli on kohustuslik!";
 			
-			$signupEmailError = "See väli on kohustuslik";
+			
+		}	else {
+			
+			//tean et parool ja see ei olnud tühi
+			//vähemalt 8
+			
+			if (strlen($_POST["signupPassword"]) < 8 ) {
+				$signupPassworderror = "Parool peab olema vähemalt 8 tähemärki pikk"; 
+			}
+		}
+	}
+	
+	$signupAgeerror = "";
+	
+	//kas vanus oli vähemalt 18
+	
+	if (isset ($_POST["signupAge"])) {
+		
+		if (empty ($_POST ["signupAge"])) {
+			$signupAgeerror = "See väli on kohustuslik!";
 			
 		}
+	
+		if  (($_POST["signupAge"]) < 18 ) {
+		$signupAgeerror = "Pead olema vähemalt 18 aastat vana";
 		
 	}
+	}
+	
+	//Millegi pärast ei saa erroreid panna nii, et kui tühi on, siis ütleks "See väli on kohustuslik" vaid ütleb ikkagi, et "Pead olema vähemalt 18 aastat vana.
+	
+	$signupNumbererror = "";
+	
+	if (isset ($_POST["signupNumber"])) {
+		
+		if (empty ($_POST ["signupNumber"])) {
+			//oli number, kuid see oli tühi
+			$signupNumbererror = "See väli on kohustuslik!";
+			
+		}
+	}	
 ?>
+
+
+
+
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Sissepääsuhaldur</title>
-</head>
-<body>
+	<head>
+		<title>Sisselogimise lehekülg</title>
+	</head>
+	<body>
 
-	<h1>Logi sisse</h1>
-	<form method="POST">
+		<h1>Logi sisse</h1>
 		
-		<input placeholder="E-Post" name="loginEmail" type="text">
-		<input type="password" name="loginPassword" placeholder="Parool">
-		<input type="submit" value="Logi sisse">
-	
-	</form>
-	
-	
-	<h1>Loo kasutaja</h1>
-	<form method="POST">
+		<form method="POST">
 		
-		<input placeholder="E-Post" name="signupEmail" type="text"> <?php echo $signupEmailError; ?>
-		<br><input type="password" name="signupPassword" placeholder="Parool"><?php echo $signupPasswordError ?>  <?php echo $lowPasswordError; ?>
-		</br><input type="submit" value="Loo kasutaja">
+			<input name="loginEmail" type="email" placeholder="E-post"> 
+			<br><br>
+			<input name="loginPassword" type="password" placeholder="Parool">
+			<br><br>
+			<input type="submit" value="Logi sisse">
 		
 		
-	</form>
+		</form>
+		
+		<head>
+		<title>Sisselogimise lehekülg</title>
+	</head>
+	<body>
 
-</body>
-</html>
+		<h1>Loo kasutaja</h1>
+		
+		<form method="POST">
+		
+			<input name="signupEmail" type="email" placeholder="E-post">  <?php echo $signupEmailerror;  ?>
+			<br><br>
+			<input name="signupPassword" type="password" placeholder="Parool"> <?php echo $signupPassworderror; ?>
+			<br><br>
+			<input name="signupAge" type="age" placeholder="Vanus"> <?php echo $signupAgeerror; ?>
+			<br><br>
+			<input name="signupNumber" type="number" placeholder="Telefoninumber">  <?php echo $signupNumbererror; ?>
+			<br><br>
+			<input type="submit" value="Loo kasutaja">
+			
+		
+		</form>
+
+	</body>
 </html>
