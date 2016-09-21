@@ -153,24 +153,16 @@
 
 
 <html>
-
-
 <style>
-	* {font-family: "Calibri Light";}
-	.redtext {color: red; font-weight: bold; }
+	* {font-family: "Calibri Light"; vertical-align:top; font-size:14px}
+	h1 {font-size: 30px; font-weight: bolder}
+	.redtext {color:#f00b0b; font-weight: bolder}
 	.table1  {border-collapse:collapse;border-spacing:0;}
-	.table1 td{font-family:Arial, sans-serif;font-size:14px;padding:5px;border-style:none;overflow:hidden;word-break:normal;}
-	.table1 .table1-style1{color:#f00b0b;vertical-align:top}
-	.table1 .table1-style2{}
-	.table1 .table1-style3{color:#f00b0b}
-	.table1 .table1-style4{text-align:right;vertical-align:top}
-	.table1 .table1-style5{vertical-align:top}
-	.table1 .table1-style6{vertical-align:top}
-
+	.table1 td{padding:5px;border-style:none;overflow:hidden;word-break:normal}
 </style>
 
 <head>
-	<title>Login page</title>
+	<title>Registreerimise lehekülg</title>
 </head>
 
 <body>
@@ -192,31 +184,29 @@
 			<input type ="submit" value = "Logi sisse">
 		
 		</form>------->
-		
-		
+
 		<h1>Loo kasutaja:</h1>
 		
 		<form method ="post">
             <table class="table1">
                 <tr>
-                    <td class="table1-style2">E-post:<span class = 'redtext'>*</span></td>
-                    <td class="table1-style5"><input name = "signupEmail" type ="email" value = "<?=$signupEmail;?>" placeholder = "E-post"></td>
-                    <td class="table1-style3"><span class = 'redtext'><?=$signupEmailError;?></span></td>
+                    <td>E-post:<span class = 'redtext'>*</span></td>
+                    <td><input name = "signupEmail" type ="email" value = "<?=$signupEmail;?>" placeholder = "E-post"></td>
+                    <td class="redtext"><?=$signupEmailError;?></td>
                 </tr>
                 <tr>
-                    <td class="table1-style2">Parool:<span class = 'redtext'>*</span></td>
-                    <td class="table1-style5"><input name = "signupPassword" type ="password" placeholder = "Parool"></td>
-                    <td class="table1-style3"><span class = 'redtext'><?=$signupPasswordError;?></span></td>
+                    <td>Parool:<span class = 'redtext'>*</span></td>
+                    <td><input name = "signupPassword" type ="password" placeholder = "Parool"></td>
+                    <td class="redtext"><?=$signupPasswordError;?></td>
                 </tr>
                 <tr>
-                    <td class="table1-style6">Sünnipäev:<span class = 'redtext'>*</span></td>
-                    <td class="table1-style5"><input  name="signupBday" type ="date" min="1900-01-01" max = "<?=date('Y-m-d'); ?>" value = "<?=$signupBday;?>"></td>
-                    <td class="table1-style1"><span class = 'redtext'><?=$signupBdayError;?></span></td>
+                    <td>Sünnipäev:<span class = 'redtext'>*</span></td>
+                    <td><input  name="signupBday" type ="date" min="1900-01-01" max = "<?=date('Y-m-d'); ?>" value = "<?=$signupBday;?>"></td>
+                    <td class="redtext"><?=$signupBdayError;?></td>
                 </tr>
                 <tr>
-                    <td class="table1-style6">Sugu:<span class = 'redtext'>*</span></td>
-                    <td class="table1-style5">
-					
+                    <td>Sugu:<span class = 'redtext'>*</span></td>
+                    <td>
 						<?php if($signupGender == "male") { ?>
 							<label><input type="radio" name="signupGender" value="male" checked> Mees</label><br>
 						<?php } else { ?>
@@ -234,15 +224,12 @@
 						<?php } else {?>
 							<label><input type="radio" name="signupGender" value="unspecified"> Ei soovi avaldada</label><br>
 						<?php } ?>
-						
-
-                    <td class="table1-style1"></td>
+                    <td class="table1-errortext"></td>
                 </tr>
                 <tr>
-                    <td class="table1-style6">Autohuvid:<span class = 'redtext'>*</span></td>
-                    <td class="table1-style5">
-
-							<input type="hidden" name="signupCarPref_items[]"  value="">
+                    <td>Autohuvid:<span class = 'redtext'>*</span></td>
+                    <td>
+                        <input type="hidden" name="signupCarPref_items[]"  value="">
 
 						<?php if(isset($_POST['signupCarPref_items']) && is_array($_POST['signupCarPref_items'])&& in_array("eucars", $_POST['signupCarPref_items'])){?>
 							<label><input type="checkbox" name="signupCarPref_items[]" value="eucars" checked> Euroopa autod</label><br>
@@ -273,11 +260,11 @@
 						<?php } else { ?>
 							<label><input type="checkbox" name="signupCarPref_items[]" value="korcars">  Korea autod</label><br>
 						<?php } ?>
-                    <td class="table1-style1"><span class = 'redtext'><?=$signupCarPrefError;?></span></td>
+                    <td class="redtext"><?=$signupCarPrefError;?></td>
                 </tr>
                 <tr>
+                    <td><input type ="submit" value = "Submit"></td>
                     <td></td>
-                    <td class="table1-style4"><input type ="submit" value = "Submit"></td>
                     <td></td>
                 </tr>
             </table>
