@@ -6,7 +6,10 @@
 	
 	$signupEmailError = "";
 	$signupPasswordError = "";
-	
+	$genderError = "";
+	$nameError = "";
+	$nameErr="";
+
 	//kas epost oli olemas
 	
 	if ( isset ( $_POST ["signupEmail"])) {
@@ -36,10 +39,19 @@
 				
 			
 		}
-			
+		if (empty($_POST["gender"])) {
+    			$genderError = "See väli on kohustuslik!";
+  			}
+		}
+	if ( isset ( $_POST ["name"])) {
+		if ( empty ( $_POST ["name"])) {
+			$nameError = "See väli on kohustuslik!";
+		} else{
+			if ( !preg_match("/^ [a-zA-Z'-]+$/", $name))
+				$nameErr = "Lubatud vaid tähed!";
+		}
 	}
 					
-
 ?>
 
 <!DOCTYPE html>
@@ -72,15 +84,20 @@
 <h1>Loo kasutaja</h1>
 		
 		<form method="POST"> 
-			
+
+			<input type="text" name="name" placeholder="Nimi"> <?php echo $nameError; ?> <?php echo $nameErr; ?>
+			<br>
+			<br>		
 			<input name="signupEmail" type="email" placeholder="E-post"> <?php echo $signupEmailError; ?>
 			<br>
 			<br>
 			<input name="signupPassword" type="password" placeholder="Parool"> <?php echo $signupPasswordError; ?>
 			<br>
 			<br>
-			<input type="radio" name="Gender" value="Naine">Naine
-			<input type="radio" name="Gender" value="Mees">Mees
+			<input type="radio" name="gender" <?php if (isset($gender) && $gender=="Naine") echo "checked";?> value="Naine">Naine <?php echo $genderError; ?>
+  			<input type="radio" name="gender" <?php if (isset($gender) && $gender=="Mees") echo "checked";?> value="Mees">Mees <?php echo $genderError; ?>
+			<br>
+			<br>
 			<input type="submit" value="Loo kasutaja">
 		
 		</form>
