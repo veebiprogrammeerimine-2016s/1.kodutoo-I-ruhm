@@ -44,40 +44,6 @@
 
 <!DOCTYPE html>
 <html>
-	$signupEmailError = "";
-	$signupPasswordError = "";
-	
-	//kas epost oli olemas
-	
-	if ( isset ( $_POST ["signupEmail"])) {
-		
-		if ( empty ($_POST ["signupEmail"])) {
-			
-			//oli email, kuid see oli tuhi
-			$signupEmailError = "See väli on kohustuslik!";
-		}
-	}
-	
-	if ( isset ( $_POST ["signupPassword"])) {
-		
-		if ( empty ($_POST ["signupPassword"])) {
-			
-			//oli email, kuid see oli tuhi
-			$signupPasswordError = "See väli on kohustuslik!";
-			
-		} else{
-			
-			// tean, et parool ja see ei olnud tuhi
-			//vahemalt 8
-			if ( strlen($_POST ["signupPassword"]) < 8 ){
-				
-				$signupPasswordError = "Parool peab olema vähemalt 8 tähemärki pikk!";
-			}
-				
-			
-		}
-			
-	}
 
 	<head>
 		<title>Sisselogimise lehekülg</title>
@@ -113,6 +79,12 @@
 			<input name="signupPassword" type="password" placeholder="Parool"> <?php echo $signupPasswordError; ?>
 			<br>
 			<br>
+			<input type="radio" name="Gender" value="Naine">Naine
+			<input type="radio" name="Gender" value="Mees">Mees
 			<input type="submit" value="Loo kasutaja">
 		
 		</form>
+	</body>
+</html>
+
+<br><br>
