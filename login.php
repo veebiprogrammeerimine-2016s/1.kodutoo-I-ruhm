@@ -89,6 +89,10 @@
     <input type="submit" value="Loo kasutaja">
 
   </form>
+  <p>
+    Ülikooli kursuse tarbeks tunniplaan, kus kirjas kodused tööd, tunnikontrollid ja eksamid.
+
+  </p>
 
 
 </body>
