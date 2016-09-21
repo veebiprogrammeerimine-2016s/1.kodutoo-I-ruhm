@@ -98,6 +98,9 @@
   			<input type="radio" name="gender" <?php if (isset($gender) && $gender=="Mees") echo "checked";?> value="Mees">Mees <?php echo $genderError; ?>
 			<br>
 			<br>
+			<textarea name="Lühitutvustus" placeholder="Tutvusta ennast(hobid, muusikamaitse jne)" rows="5" cols="40"></textarea>
+			<br>
+			<br>
 			<input type="submit" value="Loo kasutaja">
 		
 		</form>
