@@ -1,9 +1,12 @@
 ﻿<?php
 
+	//MUUTUJAD
 	$signupUsernameError = "";
 	$signupGenderError = "";
 	$signupEmailError = "";
 	$signupPasswordError = "";
+	$signupEmail = "";
+	
 	
 	if (isset ($_POST["signupUsername"]) ) {
 	
@@ -39,6 +42,8 @@
 	
 		if (empty ($_POST["signupEmail"]) ) { 
 			$signupEmailError = "See väli on kohustuslik!";
+		} else {
+			$signupEmail = $_POST["signupEmail"];
 		}
 	}
 	
@@ -92,7 +97,7 @@
 			
 			<br><br>
 		
-			<input name="signupEmail" type="email" placeholder="E-maili aadress"> <?php echo $signupEmailError; ?>
+			<input name="signupEmail" type="email" value="<?=$signupEmail;?>" placeholder="E-maili aadress"> <?php echo $signupEmailError; ?>
 			
 			<br><br>
 			
