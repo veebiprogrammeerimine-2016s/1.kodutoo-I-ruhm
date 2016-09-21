@@ -1,4 +1,7 @@
 <?php
+//"MVP idee"
+// "Spordikeskuse veebileht kus oleks võimalik kasutada sooduskaarti, valida mis spordikursusi võib valida, treenerite ajakavad, hinnad, mingid üritused ja kampaaniad."
+// "Kui sa ei lähe trenni siis sinu koht on kinni ja teised ei saa sinu asemel minna sinna."
 
 	//var_dump($_GET);
 	//echo "<br>";
@@ -6,7 +9,8 @@
 	
 	$signupEmailError = "";
 	$signupPasswordError = "";
-	
+	$signupPhonenumberError = "";
+	$PhonenumberError = "";
 	// kas e-post oli olemas
 	if(isset ($_POST["signupEmail"])) {
 		
@@ -37,6 +41,18 @@
 		}
 
 	}
+	
+	if(isset ($_POST["Phonenumber"])) {
+		
+		if (empty ($_POST["Phonenumber"])){
+				
+					$PhonenumberError = "Palun sisestage oma number";
+		}
+
+	}
+	
+	
+	
 ?>
 
 
@@ -47,12 +63,12 @@
 	</head>
 	<body>
 
-		<h1>logi sisse</h1>
+		<h1>Logi Sisse</h1>
 
 		<form method = "POST">
-			
+		
 			<label> E-post</label><br>
-			
+
 			<input name = "LoginEmail" type = "email">
 			
 			<br><br>
@@ -78,11 +94,39 @@
 			<input name = "signupPassword" type = "password" placeholder  = "Parool">  <?php echo $signupPasswordError; ?>
 			
 			<br><br>
+		
+			<form method = "POST">
 			
-			<input type = "submit" value = "Logi sisse">
+			<label> Telefoni number </label><br> 
+			
+			<input type="tel" name="Phonenumber" placeholder  = "12345678"	pattern="[0-9]{8}"> <?php echo $PhonenumberError; ?>
+			
+			<br><br>
+			
+			<form method = "POST">
 		
+			<label> Male/Female</label><br><br>
+			
+			<input type="radio" name="s" value="m" /> Male<br />
+			
+			<input type="radio" name="s" value="f" /> Female<br />
+			
+			<input type="radio" name="s" value="f" /> Other
+			
+			<br><br>
+			
+			<form method = "POST">
+			
+			<label>Birthday (month and year):</label>
+			
+			<input type="month" name="monthandyear">
+			
+			<br><br>
+			
+			<input type = "submit" value = "Registreeru">
+			
 		</form>
-		
+	
 	</body>
 	
 </html>
