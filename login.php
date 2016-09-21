@@ -1,21 +1,17 @@
 <?php
 
-	//var_dump($_GET);
-	//echo "<br>";
-	//var_dump($_POST);
-	
 	$signupEmailError = "";
 	$signupPasswordError = "";
 
-	//Kas email oli olemas
 	if ( isset ( $_POST["signupEmail"] ) ) {
 		
 		if ( empty ( $_POST["signupEmail"] ) ) {
 			
-			//oli email, kuid see oli tühi
-			$signupEmailError = "See väli on kohustuslik!";
+				//oli email, kuid see oli tühi
+				$signupEmailError = "E-mail can't be blank";
 		}
 	}
+	
 	
 	//Kas Password oli olemas
 	if ( isset ( $_POST["signupPassword"] ) ) {
@@ -23,7 +19,7 @@
 		if ( empty ( $_POST["signupPassword"] ) ) {
 			
 			//oli Password, kuid see oli tühi
-			$signupPasswordError = "See väli on kohustuslik!";
+			$signupPasswordError = "Password can't be blank";
 			
 		} else {
 		
@@ -32,14 +28,17 @@
 			
 			if ( strlen($_POST["signupPassword"]) < 8 ) {
 				
-				$signupPasswordError = "Password peab olema vähemalt 8 tähemärki pikk";
+				$signupPasswordError = "Password is too short (minimum is 8 characters)";
 				
 			}
 		}
 	}
+	
+	
 ?>
 
-<!DOCTYPE html>
+
+ <!DOCTYPE html>
 <html>
 	<head>
 		<title>Sisselogimise lehekülg</title>
@@ -50,37 +49,47 @@
 		
 		<form method="POST">
 		
-			<label>E-mail</label><br>
-		
-			<input name="loginEmail" type="Email">
+			<input name="loginE-mail" type="E-mail" placeholder="E-mail"> 
 			
 			<br><br>
 			
-			<input name="loginPassword" type="Password" placeholder="Password"> 
+			<input = name="loginPassword" type="Password" placeholder="Password">
 			
 			<br><br>
 			
-			<input type="Submit" value="Log in">
-		
+			<input type="submit" value="Log in">
+			
 		</form>
-		
-		<h1>Loo kasutaja</h1>
+			
+		<h1>Sign up</h1>
 		
 		<form method="POST">
 		
-			<label>E-mail</label><br>
-		
-			<input name="signupEmail" type="Email"> <?php echo $signupEmailError; ?>
+			<input name="signupEmail" type="E-mail" placeholder="E-mail"> 
+			
+			<br>
+			
+			<?php echo $signupEmailError; ?>
 			
 			<br><br>
 			
-			<input name="signupPassword" type="Password" placeholder="Password"> <?php echo $signupPasswordError; ?>
+			<input name="signupPassword" type="Password" placeholder="Password"> 
+			
+			<br>
+			
+			<?php echo $signupPasswordError; ?>
 			
 			<br><br>
 			
-			<input type="Submit" value="Loo kasutaja">
-		
-		</form>
-		
+			<input name="Confirm Password" type="Password" placeholder="Confirm Password">
+			
+			<br><br>
+			
+			<input type="submit" value="Sign up">
+			
+			</form>
+	
+	<p></p>
+
 	</body>
 </html>
