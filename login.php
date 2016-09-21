@@ -58,11 +58,12 @@ if (isset ($_POST["signupEmail"])){
 	
 	<input type="submit" value="Logi sisse">
 	<input type="submit" value="Unustasin parooli"
+	<br><br>
 	
 	<h1>Loo kasutaja</h1>
 
 	<form method = "POST">
-	
+	<br><br>
 	<label>E-post</label><br>
 	<input name="signupEmail" type="email"> <?php echo $signupEmailError; ?>
 	<br><br>
