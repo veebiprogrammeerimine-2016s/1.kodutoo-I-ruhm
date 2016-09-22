@@ -127,7 +127,7 @@
 			
 			//käsk 
 			$stmt = $mysqli->prepare("INSERT INTO user_table (email, password, bday, gender, carpref) VALUES (?,?,?,?,?)");
-			$signupCarPref_todatabase = implode ($_POST['signupCarPref_items'], ",");
+			$signupCarPref_todatabase = implode ($_POST['signupCarPref_items'], " ");
 			$password = hash("sha512", $_POST["signupPassword"]);
 
 			
