@@ -1,4 +1,11 @@
 <?php
+	// MVP idee - autotöökoda veebileht. Kaks kasutajat - klient ja töökoda administraator.
+	// Esimene avaldab soove veebivormi kaudu, täidab informatsiooni endast (nimi, kontakt),sõidukist (mudel, mootor)
+	// ning valib, milliseid teenuseid soovib (checkboxidega, näiteks). Programm siis arvutab, palju umbes aega selle jaoks vaja on
+	// hiljem administraator pakub täpsemat aega kliendile ja, kui kõik soovib, määrab töökoda ja meistrit.
+	// lisada võib ka  näiteks kliendikaarte/boonuspunkte, võimalust vaadata statistikat jne.
+
+	
 	//võtab ja kopeerib faili sisu
 	require ("../../config.php");
 
