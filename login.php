@@ -6,11 +6,15 @@
 	var_dump($_POST);
 	*/
 	
+	require ("../../config.php");
+	
 	$signupEmailError = "";
 	$loginEmailError = "";
 	$signupPasswordError = "";
 	$loginPasswordError = "";
 	$signupLocationError = "";
+	$mysqlregmsg = "";
+	$mysqlregmsgerror = "";
 	
 	//Kas e-post oli olemas?
 	if (isset ($_POST["signupEmail"]))
@@ -20,20 +24,28 @@
 					//Oli email, kuid tühi.
 					$signupEmailError = "See väli on kohustuslik.";
 				}
-		}
-	if (isset ($_POST["loginEmail"]))
-		{
-			if (empty ($_POST["loginEmail"]))
+				else
 				{
-					//Oli email, kuid tühi.
-					$loginEmailError = "Sisselogimise email oli tühi.";
+					$signupEmail = $_POST["signupEmail"];
+				}
+		
+		}
+	if (isset ($_POST["signupLocation"]))
+		{
+			if (empty ($_POST["signupLocation"]))
+				{
+					$signupLocationError = "See väli on kohustuslik.";
+				}
+				else
+				{
+					$signupLocation = $_POST["signupLocation"];
 				}
 		}
 	if (isset ($_POST["signupPassword"]))
 		{
 			if (empty ($_POST["signupPassword"]))
 				{
-					//Oli email, kuid tühi.
+					//Oli parool, kuid tühi.
 					$signupPasswordError = "See väli on kohustuslik.";
 				}
 				else
@@ -45,6 +57,54 @@
 					}
 				}
 		}
+			if( empty($signupEmailError)&& 
+				empty($signupPasswordError)&& 
+				empty($signupLocationError)&& 
+				isset($_POST["signupPassword"])&&
+				isset($_POST["signupEmail"])&&
+				isset($_POST["signupLocation"]))
+			{
+				//echo "Teie andmed on salvestamisel<br>";
+				//echo "Teie registreerumise email:  ". $signupEmail."<br>";
+				//echo "Teie lisatud asukoht:  ". $signupLocation."<br>";
+		
+				$password = hash ("sha512", $_POST["signupPassword"]);
+		
+				//echo "Teie parool: ".$_POST["signupPassword"]."<br>";
+				//echo "hashitud ".$password."<br>";
+		
+			//echo $serverPassword
+		
+				$database = "if16_alarip";
+			//connectib mysqli
+				$mysqli = new mysqli($serverHost, $serverUsername, $serverPassword, $database);
+			//pushib info sqli
+				$stmt = $mysqli->prepare("INSERT INTO user_sample (email,password,location) VALUES (?, ?, ?)");
+				echo $mysqli->error;
+			//s stringi
+			//i integer
+			//d double/float
+				$stmt->bind_param("sss", $signupEmail, $password, $signupLocation);
+		
+	if($stmt->execute())
+		{
+			$mysqlregmsg = "Kasutaja loomine õnnestus!";
+		}
+		else 
+		{
+			$mysqlregmsgerror = "Kasutaja loomisel tekkis viga.";
+			// mysqli error $stmt->error;
+		}
+	}
+	if (isset ($_POST["loginEmail"]))
+		{
+			if (empty ($_POST["loginEmail"]))
+				{
+					//Oli email, kuid tühi.
+					$loginEmailError = "Sisselogimise email oli tühi.";
+				}
+		}
+	
 	if (isset ($_POST["loginPassword"]))
 		{
 			if (empty ($_POST["loginPassword"]))
@@ -58,13 +118,6 @@
 					{
 					$loginPasswordError = "Sisselogimise parool peab olema vähemalt 8 tähemärki pikk.";
 					}
-				}
-		}
-	if (isset ($_POST["signupLocation"]))
-		{
-			if (empty ($_POST["signupLocation"]))
-				{
-					$signupLocationError = "See väli on kohustuslik.";
 				}
 		}
 ?>
@@ -93,6 +146,17 @@
 				color: black;
 				font-family: verdana;
 			}
+		announce
+			{ 
+				color: red;
+				font-family: verdana;
+			}
+		box
+			{ 
+				color: solid black;
+				font-family: verdana;
+				border: 1px;
+			}
 	</style>	
 		<center>
 			<body>
@@ -112,6 +176,13 @@
 				<br><br>
 				<input type = "submit" value = "Registreeru">
 				<br><br>
+	<announce>			
+		<?php			
+			echo $mysqlregmsg;
+			echo $mysqlregmsgerror;
+		?>
+	</announce>
+				
 				
 				</form>
 				<hr>
