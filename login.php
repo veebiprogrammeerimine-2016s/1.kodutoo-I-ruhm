@@ -1,5 +1,5 @@
 <?php
-// 
+// Idee oleks kavandanda veebileht, kus saaks reserveerida laudu kõikidesse restoranidesse kuhu võimalik. Muidu on igal restoranil enda lehel enda süsteem, kuid oleks palju mugavam ühelt lehelt igale poole reserveerida.
 
 
 
