@@ -1,5 +1,10 @@
 <?php
 
+	//võtab ja kopeerib faili sisu
+	require ("../../config.php");
+
+
+
 	//GET ja POST muutujad
 	//var_dump($_GET);
 	//echo "<br>";
@@ -13,6 +18,8 @@
 	$signupEmail = "";
 	$genderError = "";
 	$signupAgeError = "";
+	$signupInstrumentError = "";
+	$gender = "male";
 	//($_POST["signupEmail"])
 	// on üldse olemas selline muutuja
 	
@@ -83,7 +90,71 @@
 				}
 		}
 	}
+	
+	if(isset($_POST["signupInstrument"])){
+		
+		if ( empty($_POST["signupInstrument"])){
+			
+			$signupInstrumentError = "Instrumendi lisamine on kohustuslik";
+			
+		} else {
+				//Instrimendi lisamine on kohustuslik
+				
+			$instrument = $_POST["signupInstrument"];
+		}		
+		
+	}
+
+	if ( isset ($_POST["signupPassword"]) &&
+		 isset ($_POST["signupEmail"]) &&
+		 isset ($_POST["signupAge"]) &&
+		 isset ($_POST["signupInstrument"]) &&
+		 empty($signupEmailError) && 
+		 empty($signupPasswordError) &&
+		 empty($signupAgeError) &&
+		 empty($signupInstrumentError)
+		) {
+		 
+		
+		echo "Salvestan...<br>";
+		echo "email ".$signupEmail."<br>";
+		
+		$password = hash("sha512", $_POST["signupPassword"]);
+		
+		echo "parool ".$_POST["signupPassword"]. "<br>";
+		echo "räsi ".$password."<br>";
+		
+		//echo $serverUsername;
+		
+		$database = "if16_jant";
+		
+		$mysqli = new mysqli ($serverHost, $serverUsername, $serverPassword, $database);
+		
+		//käsk
+		$stmt = $mysqli->prepare("INSERT INTO user_sample(email, password)VALUES (?,?)");
+		
+		echo $mysqli->error;
+		
+		//asendan ? väärtustega
+		//iga muutuja kohta 1 täht, mis muutuja on
+		//s - strin
+		//i - integer
+		//d - double/float 
+		$stmt->bind_param("ss",$signupEmail, $password);
+		
+		if($stmt->execute()) {
+			
+			echo "Salvestamine õnnestus";
+		} else{
+			echo "ERROR".$stmt->error;
+		}
+		
+		
+	}
+	
+	
 ?>
+
 
 
 
@@ -145,12 +216,21 @@
 			<?php echo $signupAgeError; ?>
 			<br><br>
 		
-		
-		<input type="submit" value="Loo kasutaja">
-		
-		
-		
-	</form>
+		<label>Millist instrumenti mängid?
+			<select name="signupInstrument">
+				<option value=""> Vali...</option>
+				<option value="guitar">Kitarr</option>
+				<option value="bassguitar">Basskitarr</option>
+				<option value="percussion">Löökpillid</option>
+				<option value="piano">Klahvpillid</option>
+				<option value="unknown">Mingi muu</option>
+			</select>
+			<?php? echo $signupInstrumentError; ?>
+			
+			<br><br>
+			<input type="submit" value="Loo kasutaja">
+	
+		</form>
 
 </body>
 </html>
