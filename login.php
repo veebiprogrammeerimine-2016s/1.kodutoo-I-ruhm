@@ -2,6 +2,7 @@
 //"MVP idee"
 // "Spordikeskuse veebileht kus oleks võimalik kasutada sooduskaarti, valida mis spordikursusi võib valida, treenerite ajakavad, hinnad, mingid üritused ja kampaaniad."
 // "Kui sa ei lähe trenni siis sinu koht on kinni ja teised ei saa sinu asemel minna sinna."
+// Esimene kord tasuta, proovimiseks. Treeningud, uudised(kalender), reeglid, liitumine ja hinnakiri, kontaktid, koraldada uritus, uurida saal, galerii, soodustused, personaaltreening(isiklik treener), mingi slogan.
 
 	//var_dump($_GET);
 	//echo "<br>";
