@@ -1,5 +1,6 @@
 <?php
-	
+//MVP IDEE: Luua maaklerivabade korterite üürimissait, kus soovija saab reaalajas omanikuga suhelda (tingimusel, kui mõlemad osapooled on samal ajal onlines).
+//MVP IDEE LISA: Kõik üürisoovijad peavad looma omale üürimiseks konto ja neid saab hinnata, kui head üürilised nad on, et järgnevad üürileandjad saaksid ülevaate.
 
 	//var_dump(5.5);
 	
