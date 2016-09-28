@@ -2,16 +2,11 @@
 <?php
 	
 	require("../../config.php");
-	require("function.php");
 	//var_dump();
 	//var_dump($_GET);
 	//echo "<br>";
 	//var_dump($_POST);
-	if (isset ($_SESSION["userId"])) {
-		
-		header("Location: data.php");
-		
-	}
+	
 	//MUUTUJAD
 	$signupEmailError="";
 	$signupPasswordError="";
@@ -87,7 +82,7 @@
 	}
 	
 	
-	$error = "";
+	
 	//Kus tean et uhtegi viga ei olnud ja saan kasutaja andmed salvestada
 	if ( isset($_POST["signupPassword"]) &&
 		 isset($_POST["signupEmail"]) &&
@@ -103,14 +98,26 @@
 		echo "parool ".$_POST["signupPassword"]."<br>";
 		echo "parooli hash ".$password."<br>";
 		
-		signup($signupEmail, $password);
+		//echo $serverUsername;
+		$database = "if16_clevenl";
+		//uhendus
+		$mysqli = new mysqli($serverHost,$serverUsername,$serverPassword,$database);
 		
+		$stmt = $mysqli->prepare("INSERT INTO user_sample (email, password) VALUES (?,?)");
 		
-	}
-	
-	if( isset($_POST["loginEmail"]) && isset($_POST["loginPassword"]) && !empty($_POST["loginEmail"]) && !empty($_POST["loginPassword"])){
-	
-		$error = login($_POST["loginEmail"], $_POST["loginPassword"]);
+		//asendan kusimargi vaartustega
+		//iga muutuja kohta 1 taht, mis tuupi muutuja on
+		// s - string
+		// i - integer
+		// d - double/float
+		$stmt->bind_param("ss", $signupEmail, $password);
+		
+		if ($stmt->execute()) {
+			
+			echo "salvestamine onnestus!";
+		} else {
+			echo "ERROR ".$stmt->error;
+		}
 	}
 ?>
 
@@ -121,14 +128,44 @@
 	<head>
 		<title>Sisselogimise lehekülg</title>
 	</head>
-		<body>
+	
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+		<link rel="stylesheet" href="http://www.w3schools.com/lib/w3-theme-black.css">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+		<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+		<style>
+		html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
+		.w3-sidenav a,.w3-sidenav h4{padding:12px;}
+		.w3-navbar a{padding-top:12px !important;padding-bottom:12px !important;}
+		</style>
+	
+			<body>
+			
+			<ul class="w3-navbar w3-theme w3-top w3-left-align w3-large" style="z-index:4;">
+				<li class="w3-opennav w3-right w3-hide-large">
+					<a class="w3-hover-white w3-large w3-theme-l1" href="javascript:void(0)" onclick="w3_open()"><i class="fa fa-bars"></i></a>
+				</li>
+				<li><a href="#" class="w3-theme-l1">Avaleht</a></li>
+				<li class="w3-hide-small"><a href="#" class="w3-hover-white">Logi sisse</a></li>
+				<li class="w3-hide-small"><a href="#" class="w3-hover-white">Loo kasutaja</a></li>
+			</ul>
+			
+			<div class="w3-main" style="margin-left:50px">
 
-			<h1>Logi sisse</h1>
+			  <div class="w3-row w3-padding-64">
+				<div class="w3-twothird w3-container">
+				  <h1 class="w3-text-teal">Postituse pealkiri</h1>
+				  <p>Siia tuleb igasugust kasutajate poolt postitatud kraami.</p>
+				  <p>Logi sisse, et sisule ligi pääseda.</p>
+				</div>
+			  </div>
+			</div>
+
+			<br><br><h1>Logi sisse</h1>
 		
 			<form method="POST">
 			
-				<p style ="color:red;"><?=$error;?></p>
-				
 				<input name="loginEmail" type="email" placeholder="E-post"> <?php echo $loginEmailError;?>
 				
 				<br><br>
