@@ -8,6 +8,7 @@
 	$signupEmailError="";
 	$signupPasswordError="";
 	$signupPassword2Error="";
+	$signupUsernameError="";
 	$loginEmailError="";
 	$loginPasswordError="";
 	
@@ -21,35 +22,40 @@
 				} else {
 			
 				if (strlen($_POST["signupPassword"]) <8) {
-					$signupPasswordError="Parool peab olema vähemalt 8 tähemärki pikk";
+					$signupPasswordError="Parool peab olema vahemalt 8 tahemarki pikk";
 				}
-			
 		}
 	}
 	
-	/*
 	if (isset($_POST["signupPassword2"])){
 		
-		if (($_POST["signupPassword"])=/=($_POST["signupPassword2"]) ){
+		if (empty($_POST["signupPassword2"])){
 			
-			$signupPassword2Error="Paroolid ei klapi!";
+			$signupPassword2Error="Ei tohi tühjaks jätta, sisestage uuesti!";
+		
+				if (($_POST["signupPassword"])!=($_POST["signupPassword2"]) ){
 			
-				
-			
+					$signupPassword2Error="Paroolid ei klapi!";
+				}
 		}
 	}
-	*/
-	
 	
 	if (isset($_POST["signupEmail"])){
 				
 		if (empty($_POST["signupEmail"])){
 					
 			$signupEmailError="See väli on kohustuslik!";
-		
-	
 		}
 	}
+	
+	if (isset($_POST["signupUsername"])){
+				
+		if (empty($_POST["signupUsername"])){
+					
+			$signupUsernameError="Kasutajanime sisestamine on kohustuslik!";
+		}
+	}
+	
 	if (isset($_POST["loginPassword"])){
 		
 		if (empty($_POST["loginPassword"])){
@@ -59,18 +65,16 @@
 				} else {
 			
 				if (strlen($_POST["loginPassword"]) <8) {
-					$loginPasswordError="Parool peab olema vähemalt 8 tähemärki pikk";
+					$loginPasswordError="Parool peab olema vahemalt 8 tahemarki pikk";
 				}
-			
 		}
 	}
+	
 	if (isset($_POST["loginEmail"])){
 				
 		if (empty($_POST["loginEmail"])){
 					
 			$loginEmailError="Sisestage siia oma e-post, et sisse logida!";
-		
-	
 		}
 	}
 ?>
@@ -129,8 +133,9 @@
 				<br> <br>
 				
 				Sugu:
-				<input type="radio" name="gender" value="Male" <?php if(isset($_POST['gender']) && $_POST['gender']=="Male") { ?>checked<?php  } ?>> Male
-			    <input type="radio" name="gender" value="Female" <?php if(isset($_POST['gender']) && $_POST['gender']=="Female") { ?>checked<?php  } ?>> Female
+				<input type="radio" name="gender" value="male" checked> Male
+				<input type="radio" name="gender" value="female"> Female
+				<input type="radio" name="gender" value="other"> Other
 				
 				<br><br>
 				

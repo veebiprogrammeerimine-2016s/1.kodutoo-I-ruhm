@@ -1,3 +1,6 @@
 Ideeks plaanin teha sellist eesmärkidega seotud lihtsat kodulehekülge, kus inimene paneb oma päevased eesmärgid kirja.
 Täites eesmärke saab inimene näiteks punkte, millega on tal võimalus auhindu saada. Auhindadeks võib olla ükskõik mida, aga algselt virtuaalset.
+Ideaalis võiks auhinnad sisaldada päris rahalisi auhindu. Näiteks kogudes mingi hulga punkte, saab kasutaja need välja vahetada ühe kuu Spotify premiumi vastu.
 Näiteks saab avada uusi kujundusi leheküljele või virtuaalsed karikad jne. Ma arvan, et see on hea idee, kuidas inimesi rohkem motiveerida.
+Eestis minu teada sellist lehekülge veel ei eksisteeri. Kõige lähedasem lehekülg minu ideele on https://habitica.com/static/front, tegemist on küll mänguga, aga sealt sain ma inspiratsiooni.
+Ise ei plaani päris mängu formaadis seda küll teha.
