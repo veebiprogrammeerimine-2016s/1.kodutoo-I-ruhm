@@ -1,1 +1,11 @@
-Siia kirjutan idee
+Minu MVP idee
+
+Teha image-board stiilis veebilehekülg, mis on tüübilt foorum, millesse kasutajad postitavad
+pildipõhiseid postitusi. Iga postituse alla on võimalik tekitada antud teema kohane arutelu.
+
+Suurimaks eeskujuks sellise lehekülje tegemiseks on http://www.4chan.org/ ja https://www.reddit.com/
+Stiililt sooviksin luua 4chani laadset lehekülge. 4chanis puudub sisselogimisvõimalus, minu leheküljel
+see võimalus oleks olemas. Selle süsteemi eeskujuks võtaksn redditi.
+
+Eestis sellises stiilis lehekülgi minu teada ei ole. Võib vaielda, kas 9gag.comi või siis meeldib.ee laadsed
+leheküljed lugeda image-boardi stiilis lehekülgede alla. Mina nii ei arvaks.
