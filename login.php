@@ -104,6 +104,9 @@
 			<input type="submit" value="Loo kasutaja">
 		
 		</form>
+	
+		<!--Töökindla tellimusvormi loomine. Vajalik tellija info, pakisaatmisteenuse valimine jne.-->
+
 	</body>
 </html>
 
