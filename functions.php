@@ -75,7 +75,7 @@
 	}
 	
 	
-		function bdayandtel ($sunnipaev, $telefon) {
+	function bdayandtel ($sunnipaev, $telefon) {
 		
 		$mysqli = new mysqli($GLOBALS["serverHost"],$GLOBALS["serverUsername"],$GLOBALS["serverPassword"],$GLOBALS["database"]);
 
@@ -85,7 +85,7 @@
 		$stmt->bind_param("ss", $sunnipaev, $telefon);
 		
 		if ($stmt->execute()) {
-			echo "salvestamine õnnestus";
+			echo "Salvestamine Onnestus";
 		} else {
 			echo "ERROR ".$stmt->error;
 		}

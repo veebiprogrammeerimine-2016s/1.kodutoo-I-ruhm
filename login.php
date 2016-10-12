@@ -28,7 +28,12 @@
 		if ( empty ( $_POST["signupEmail"] ) ) {
 			// oli email, kuid see oli tühi
 			$signupEmailError = "See väli on kohustuslik!";
-		}	
+		} else {
+			
+			$signupEmail = $_POST["signupEmail"];
+			
+			
+		}
 	}
 	
 	if ( isset ( $_POST["signupPassword"] ) ) {
@@ -166,3 +171,6 @@
 		
 	</body>
 </html>
+<br><br>
+<h1>MVP idee</h1>
+Spordikeskus kus inimesed voivad valida endale kursuseid, saada allahindlusi, treeningukava vaadata, valida treenereid ja muud.

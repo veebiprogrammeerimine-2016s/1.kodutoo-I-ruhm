@@ -18,13 +18,14 @@
 		
 	}
 	
-	$sunnipaev = "";
-	$telefon = "";
 	
-	//echo "Salvestan...<br>";
-	//echo "Sunnipaev ".$sunnipaev."<br>";
-	//echo "Telefon ".$telefon."<br>";
-	//bdayandtel($sunnipaev, $telefon);
+	if ( isset($_POST["sunnipaev"]) &&
+		 isset($_POST["telefon"]) &&
+		 !empty($_POST["sunnipaev"]) &&
+		 !empty($_POST["telefon"])
+	  ) {
+		bdayandtel($_POST["sunnipaev"], $_POST["telefon"]);
+	}
 	
 	
 ?>
