@@ -31,7 +31,7 @@
 ?>
 <h1>Data</h1>
 <p>
-	Tere tulemast <?=$_SESSION["email"];?>!
+	Tere tulemast <?=$_SESSION["userEmail"];?>! 
 	<a href="?logout=1">Logi välja</a>
 </p> 
 
